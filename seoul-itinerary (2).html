@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seoul Trip 2026.6.27–29</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@300;400&family=DM+Serif+Display:ital@0;1&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #2e8fb5;
+  --rose:    #c4607a;
+  --gold:    #c09c5a;
+  --mint:    #5a9e7e;
+  --blue:    #5ab8d8;
+  --ink:     #1a2840;
+  --muted:   #7a90a8;
+  --bg:      #eef6fb;
+  --card:    #ffffff;
+  --cream:   #faf0e2;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Noto Sans JP', sans-serif; background: var(--bg); color: var(--ink); overflow-x: hidden; }
+
+/* NAV */
+.sticky-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 0.55rem 1rem;
+  background: rgba(240,245,249,0.92); backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(44,110,138,0.18);
+  box-shadow: 0 2px 16px rgba(44,110,138,0.1);
+  display: flex; align-items: center; justify-content: space-between;
+  transform: translateY(-100%); transition: transform 0.4s ease;
+}
+.sticky-nav.visible { transform: translateY(0); }
+.nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--primary); font-style: italic; text-decoration: none; }
+.nav-links { display: flex; gap: 0; list-style: none; flex: 1; justify-content: flex-end; }
+.nav-links a { font-family: 'Lato', sans-serif; font-size: 0.6rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; padding: 4px 7px; white-space: nowrap; }
+.nav-links a:hover { color: var(--primary); }
+
+/* HERO */
+.hero {
+  min-height: 70vh; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+  background: linear-gradient(150deg, #1a3d5c 0%, #2c6e8a 40%, #5a88b5 75%, #c4607a 100%);
+}
+.hero-bg { position: absolute; inset: 0; z-index: 0; }
+.blob { position: absolute; border-radius: 50%; filter: blur(70px); opacity: 0.38; animation: blobFloat 9s ease-in-out infinite; }
+.blob-1 { width: 480px; height: 480px; background: #0e2640; top: -140px; left: -160px; animation-delay: 0s; }
+.blob-2 { width: 360px; height: 360px; background: #faf0e2; bottom: -100px; right: -80px; animation-delay: 3.5s; }
+.blob-3 { width: 300px; height: 300px; background: #c4607a; top: 32%; left: 60%; animation-delay: 1.8s; }
+@keyframes blobFloat {
+  0%,100% { transform: translate(0,0) scale(1); }
+  33% { transform: translate(18px,-18px) scale(1.05); }
+  66% { transform: translate(-12px,14px) scale(0.95); }
+}
+.hero-content { position: relative; z-index: 1; text-align: center; padding: 2rem; }
+.hero-eyebrow { font-family: 'Lato', sans-serif; font-weight: 400; letter-spacing: 0.45em; font-size: 0.72rem; color: rgba(255,255,255,0.85); text-transform: uppercase; margin-bottom: 1.4rem; opacity: 0; animation: fadeUp 0.8s 0.2s ease forwards; }
+.hero-title { font-family: 'DM Serif Display', serif; font-size: clamp(3.5rem, 11vw, 7.5rem); color: #fff; line-height: 1; margin-bottom: 0.4rem; opacity: 0; animation: fadeUp 0.8s 0.4s ease forwards; }
+.hero-title em { font-style: italic; color: #faf0e2; }
+.hero-ja { font-family: 'Noto Serif JP', serif; font-weight: 600; font-size: clamp(1.1rem, 3vw, 1.6rem); color: rgba(255,255,255,0.85); letter-spacing: 0.15em; margin-bottom: 2.8rem; opacity: 0; animation: fadeUp 0.8s 0.6s ease forwards; }
+.hero-chips { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.8s 0.8s ease forwards; }
+.hero-chip { background: rgba(255,255,255,0.14); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.25); border-radius: 100px; padding: 0.45rem 1.2rem; font-family: 'Lato', sans-serif; font-size: 0.82rem; color: rgba(255,255,255,0.92); letter-spacing: 0.05em; }
+.scroll-hint { position: absolute; bottom: 2.2rem; left: 0; right: 0; text-align: center; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: rgba(255,255,255,0.5); font-family: 'Lato', sans-serif; font-size: 0.65rem; letter-spacing: 0.2em; opacity: 0; animation: fadeUp 0.8s 1.2s ease forwards; }
+.scroll-line { width: 1px; height: 38px; background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent); animation: scrollPulse 2s ease-in-out infinite; }
+@keyframes scrollPulse { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
+@keyframes fadeUp { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:translateY(0); } }
+
+/* SECTIONS */
+.section { max-width: 900px; margin: 0 auto; padding: 4.5rem 1.5rem; }
+.section-eyebrow { font-family: 'Lato', sans-serif; font-weight: 400; font-size: 0.68rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--primary); margin-bottom: 0.6rem; }
+.section-title { font-family: 'Noto Serif JP', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 400; color: var(--ink); margin-bottom: 2rem; line-height: 1.3; }
+.section-title em { font-family: inherit; font-style: normal; font-weight: 700; color: var(--primary); }
+.divider-line { height: 1px; background: linear-gradient(to right, transparent, rgba(44,110,138,0.22), transparent); }
+
+/* OVERVIEW */
+.overview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+.overview-card { background: linear-gradient(135deg, rgba(90,136,181,0.12), rgba(192,156,90,0.1)); border-radius: 18px; padding: 1.5rem; border: 1px solid rgba(44,110,138,0.15); transition: transform 0.3s, box-shadow 0.3s; }
+.overview-card:hover { transform: translateY(-4px); box-shadow: 0 14px 36px rgba(44,110,138,0.12); }
+.overview-card-icon { font-size: 24px; margin-bottom: 8px; }
+.overview-card-label { font-family: 'Lato', sans-serif; font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--primary); margin-bottom: 4px; }
+.overview-card-val { font-family: 'Noto Serif JP', serif; font-size: 14px; font-weight: 600; color: var(--ink); line-height: 1.4; }
+.overview-card-sub { font-size: 12px; color: var(--muted); margin-top: 3px; }
+
+/* HOTEL */
+.hotel-card { border-radius: 20px; overflow: hidden; border: 1px solid rgba(44,110,138,0.15); box-shadow: 0 4px 24px rgba(44,110,138,0.08); display: grid; grid-template-columns: 2fr 3fr; }
+@media (max-width: 600px) { .hotel-card { grid-template-columns: 1fr; } }
+.hotel-img { background: linear-gradient(135deg, #2c6e8a, #c4607a); min-height: 220px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; font-size: 3rem; }
+.hotel-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hotel-body { background: var(--card); padding: 1.75rem; }
+.hotel-name { font-family: 'Lato', sans-serif; font-weight: 300; font-style: italic; font-size: 1.35rem; letter-spacing: 0.05em; color: var(--primary); margin-bottom: 3px; }
+.hotel-sub { font-size: 12px; color: var(--muted); margin-bottom: 1.2rem; }
+.hotel-row { display: flex; gap: 8px; font-size: 13px; padding: 7px 0; border-bottom: 1px solid rgba(90,136,181,0.15); }
+.hotel-row:last-of-type { border: none; }
+.hotel-row-label { font-size: 10px; font-weight: 700; letter-spacing: 0.05em; color: var(--muted); min-width: 76px; padding-top: 1px; text-transform: uppercase; font-family: 'Lato', sans-serif; }
+.hotel-btn { display: inline-block; margin-top: 1rem; background: var(--primary); color: white; padding: 8px 18px; border-radius: 100px; text-decoration: none; font-size: 12px; font-family: 'Lato', sans-serif; letter-spacing: 0.08em; transition: background 0.2s; }
+.hotel-btn:hover { background: #1e4e64; }
+.hotel-btn.naver { background: #03c75a; }
+.hotel-btn.naver:hover { background: #029944; }
+
+/* FLIGHTS */
+.flight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+@media (max-width: 600px) { .flight-grid { grid-template-columns: 1fr; } }
+.flight-card { background: var(--card); border-radius: 18px; padding: 1.5rem; border: 1px solid rgba(44,110,138,0.15); box-shadow: 0 2px 16px rgba(44,110,138,0.06); }
+.flight-badge { display: inline-block; font-family: 'Lato', sans-serif; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; padding: 3px 12px; border-radius: 100px; margin-bottom: 1rem; }
+.flight-badge.out { background: rgba(44,110,138,0.1); color: var(--primary); }
+.flight-badge.ret { background: rgba(192,156,90,0.15); color: #7a5e00; }
+.flight-num { font-family: 'Lato', sans-serif; font-weight: 500; font-size: 1.8rem; letter-spacing: 0.18em; color: var(--ink); margin-bottom: 3px; }
+.flight-airline { font-size: 11px; color: var(--muted); margin-bottom: 1.2rem; font-family: 'Lato', sans-serif; }
+.flight-route { display: flex; align-items: center; gap: 10px; margin-bottom: 1.2rem; }
+.flight-airport { text-align: center; }
+.flight-code { font-family: 'Lato', sans-serif; font-weight: 400; font-size: 1.6rem; letter-spacing: 0.12em; color: var(--primary); line-height: 1; }
+.flight-city { font-size: 10px; color: var(--muted); }
+.flight-time { font-family: 'Lato', sans-serif; font-weight: 400; font-size: 14px; letter-spacing: 0.08em; color: var(--ink); margin-top: 2px; }
+.flight-arrow { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.flight-line { width: 100%; height: 1px; background: linear-gradient(to right, var(--blue), var(--gold)); position: relative; }
+.flight-line::after { content: '\2708\FE0E'; position: absolute; top: -15px; left: 50%; transform: translateX(-50%); font-size: 11px; color: var(--primary); }
+.flight-dur { font-size: 10px; color: var(--muted); font-family: 'Lato', sans-serif; margin-top: 6px; }
+.flight-info { border-top: 1px solid rgba(90,136,181,0.2); padding-top: 10px; }
+.flight-info-row { display: flex; justify-content: space-between; font-size: 12px; padding: 4px 0; color: var(--ink); }
+.flight-info-row span:first-child { color: var(--muted); font-family: 'Lato', sans-serif; font-size: 10px; letter-spacing: 0.05em; text-transform: uppercase; }
+
+/* CHECKLIST */
+.checklist-section { background: rgba(240,245,249,0.98); padding: 4.5rem 1.5rem; position: relative; overflow: hidden; }
+.checklist-section::before { content: ''; position: absolute; top: -200px; right: -150px; width: 450px; height: 450px; background: radial-gradient(circle, rgba(44,110,138,0.07) 0%, transparent 70%); pointer-events: none; }
+.checklist-inner { max-width: 900px; margin: 0 auto; }
+.checklist-section .section-eyebrow { color: var(--primary); }
+.checklist-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+.checklist-group { background: rgba(255,255,255,0.75); backdrop-filter: blur(10px); border: 1px solid rgba(44,110,138,0.15); border-radius: 18px; padding: 1.4rem 1.5rem; }
+.checklist-group-title { font-family: 'Noto Serif JP', serif; font-weight: 700; font-size: 1.1rem; color: var(--primary); margin-bottom: 0.9rem; padding-bottom: 0.6rem; border-bottom: 1px solid rgba(44,110,138,0.15); }
+.check-item { display: flex; align-items: flex-start; gap: 10px; padding: 7px 0; border-bottom: 1px solid rgba(44,110,138,0.08); cursor: pointer; transition: opacity 0.2s; }
+.check-item:last-child { border-bottom: none; }
+.check-item:hover { opacity: 0.8; }
+.check-box { width: 18px; height: 18px; min-width: 18px; border: 1.5px solid rgba(44,110,138,0.35); border-radius: 4px; margin-top: 2px; display: flex; align-items: center; justify-content: center; transition: all 0.25s ease; }
+.check-item.checked .check-box { background: linear-gradient(135deg, var(--primary), var(--blue)); border-color: transparent; }
+.check-item.checked .check-box::after { content: '✓'; font-size: 11px; color: white; font-weight: 700; }
+.check-item.checked .check-label { text-decoration: line-through; opacity: 0.5; }
+.check-label { font-size: 13px; color: var(--ink); line-height: 1.5; transition: all 0.25s; }
+.check-label small { display: block; font-size: 11px; color: var(--muted); margin-top: 1px; }
+.progress-wrap { margin-top: 1.5rem; }
+.progress-label { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); margin-bottom: 6px; font-family: 'Lato', sans-serif; letter-spacing: 0.05em; }
+.progress-bar { height: 6px; background: rgba(44,110,138,0.12); border-radius: 3px; overflow: hidden; }
+.progress-fill { height: 100%; background: linear-gradient(to right, var(--primary), var(--blue), var(--cream)); border-radius: 3px; transition: width 0.4s ease; }
+
+/* DAYS */
+.days-section { padding: 4.5rem 1.5rem; background: var(--bg); }
+.days-inner { max-width: 900px; margin: 0 auto; }
+.day-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 2rem; }
+.day-tab { font-family: 'Lato', sans-serif; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 7px 18px; border-radius: 100px; border: 1.5px solid rgba(44,110,138,0.3); background: transparent; color: var(--muted); cursor: pointer; transition: all 0.2s; }
+.day-tab.active, .day-tab:hover { background: var(--primary); color: white; border-color: var(--primary); }
+.day-panel { display: none; }
+.day-panel.active { display: block; }
+.day-header { display: flex; align-items: center; gap: 1.2rem; margin-bottom: 2rem; padding-bottom: 1.2rem; border-bottom: 2px solid rgba(90,136,181,0.25); }
+.day-num-big { font-family: 'DM Serif Display', serif; font-size: 4.5rem; line-height: 1; font-style: italic; color: rgba(44,110,138,0.18); min-width: 72px; }
+.day-date-en { font-family: 'Lato', sans-serif; font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--primary); margin-bottom: 4px; }
+.day-title-ja { font-family: 'Noto Serif JP', serif; font-weight: 600; font-size: clamp(1.3rem, 3.5vw, 1.9rem); color: var(--ink); }
+.day-sub-ja { font-size: 11px; color: var(--muted); margin-top: 3px; font-family: 'Noto Sans JP', sans-serif; font-weight: 400; letter-spacing: 0.03em; }
+
+/* TIMELINE */
+.timeline { position: relative; padding-left: 1.2rem; }
+.timeline::before { content: ''; position: absolute; left: 0; top: 14px; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--primary), var(--blue), transparent); }
+.tl-item { position: relative; padding-left: 1.4rem; margin-bottom: 1.2rem; opacity: 0; transform: translateX(-20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.tl-item.visible { opacity: 1; transform: translateX(0); }
+.tl-dot { position: absolute; left: -1.6rem; top: 16px; width: 12px; height: 12px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--blue)); box-shadow: 0 0 0 3px var(--bg), 0 0 0 5px rgba(44,110,138,0.2); z-index: 1; }
+.tl-card { background: var(--card); border-radius: 16px; padding: 1.3rem 1.5rem; border: 1px solid rgba(44,110,138,0.12); box-shadow: 0 2px 14px rgba(44,110,138,0.06); position: relative; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; }
+.tl-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(to bottom, var(--primary), var(--blue)); border-radius: 4px 0 0 4px; }
+.tl-card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(44,110,138,0.12); }
+.tl-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+.tl-time { font-family: 'Lato', sans-serif; font-size: 0.68rem; letter-spacing: 0.12em; color: var(--primary); font-weight: 400; }
+.tl-cat { font-size: 10px; font-weight: 700; padding: 2px 9px; border-radius: 8px; letter-spacing: 0.05em; font-family: 'Lato', sans-serif; text-transform: uppercase; }
+.cat-move  { background: rgba(90,136,181,0.15); color: #1e4e7a; }
+.cat-food  { background: rgba(192,156,90,0.2);  color: #7a5000; }
+.cat-beauty { background: rgba(196,96,122,0.12); color: #8a3050; }
+.cat-shop  { background: rgba(90,158,126,0.15);  color: #2a6e4e; }
+.cat-hotel { background: rgba(192,156,90,0.12); color: #7a5000; }
+.cat-free  { background: rgba(122,144,168,0.12);  color: var(--muted); }
+.cat-night { background: rgba(44,110,138,0.1); color: var(--primary); }
+.tl-title { font-family: 'Noto Serif JP', serif; font-weight: 400; font-size: 1.05rem; color: var(--ink); flex: 1; }
+.tl-body { font-size: 13px; color: var(--muted); line-height: 1.75; }
+.tl-links { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.tl-link { font-size: 11px; font-family: 'Lato', sans-serif; padding: 3px 11px; border-radius: 100px; border: 1px solid rgba(44,110,138,0.3); color: var(--primary); text-decoration: none; transition: all 0.15s; letter-spacing: 0.04em; }
+.tl-link:hover { background: var(--primary); color: white; border-color: var(--primary); }
+.tl-link.naver { border-color: rgba(3,199,90,0.4); color: #029944; }
+.tl-link.naver:hover { background: #03c75a; color: white; border-color: #03c75a; }
+.tl-note { font-size: 12px; color: var(--muted); background: rgba(250,240,226,0.55); border-left: 3px solid var(--gold); padding: 6px 10px; border-radius: 0 6px 6px 0; margin-top: 10px; }
+
+/* TRANSIT */
+.tl-transit .tl-card { background: rgba(240,245,249,0.6); border-color: rgba(90,136,181,0.2); box-shadow: 0 2px 10px rgba(44,110,138,0.06); }
+.tl-transit .tl-card::before { background: linear-gradient(to bottom, var(--blue), rgba(90,136,181,0.2)); }
+.tl-transit .tl-dot { background: linear-gradient(135deg, var(--blue), #7aaccc); box-shadow: 0 0 0 3px var(--bg), 0 0 0 5px rgba(90,136,181,0.2); }
+.tl-transit .tl-time { color: var(--blue); }
+
+/* STAMP */
+.stamp-req { display: inline-flex; align-items: center; border: 1.5px solid var(--rose); border-radius: 3px; color: var(--rose); background: rgba(196,96,122,0.05); font-family: 'Lato', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 0.12em; padding: 1px 6px; transform: rotate(-2deg); flex-shrink: 0; opacity: 0.85; white-space: nowrap; }
+
+/* CANDIDATES */
+.tl-candidates { margin-top: 12px; display: flex; flex-direction: column; gap: 0; }
+.candidates-label { font-size: 12px; font-family: 'Lato', sans-serif; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; margin-top: 12px; font-weight: 700; }
+.tl-candidate { padding: 10px 12px; border-radius: 10px; border: 1px solid rgba(44,110,138,0.12); background: rgba(240,245,249,0.7); transition: background 0.2s; position: relative; display: flex; gap: 10px; align-items: flex-start; }
+.tl-candidate:not(:last-child) { margin-bottom: 6px; }
+.tl-candidate:hover { background: rgba(224,236,244,0.9); }
+.tl-candidate.picked { border-color: var(--primary); background: rgba(44,110,138,0.06); }
+.tl-candidate.picked::after { content: '✓ 決定'; position: absolute; top: 8px; right: 10px; font-size: 10px; font-family: 'Lato', sans-serif; font-weight: 700; letter-spacing: 0.08em; color: var(--primary); }
+.cand-body { flex: 1; min-width: 0; }
+.cand-photo { width: 72px; min-width: 72px; height: 72px; border-radius: 8px; overflow: hidden; background: rgba(44,110,138,0.08); border: 1px dashed rgba(44,110,138,0.22); display: flex; align-items: center; justify-content: center; flex-shrink: 0; align-self: center; }
+.cand-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cand-photo-empty { font-size: 18px; opacity: 0.35; }
+.cand-header { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+.cand-num { width: 20px; height: 20px; min-width: 20px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--blue)); color: white; font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center; font-family: 'Lato', sans-serif; }
+.cand-name { font-family: 'Lato', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.08em; color: var(--primary); flex: 1; }
+.cand-memo { font-size: 12px; color: var(--muted); line-height: 1.5; margin-bottom: 6px; }
+.cand-links { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 4px; }
+.cand-link { font-size: 10px; font-family: 'Lato', sans-serif; padding: 2px 9px; border-radius: 100px; border: 1px solid rgba(44,110,138,0.25); color: var(--primary); text-decoration: none; transition: all 0.15s; }
+.cand-link:hover { background: var(--primary); color: white; border-color: var(--primary); }
+.cand-link.naver { border-color: rgba(3,199,90,0.4); color: #029944; }
+.cand-link.naver:hover { background: #03c75a; color: white; border-color: #03c75a; }
+.cand-pick-btn, .cand-unpick-btn { display: none !important; }
+
+/* ── SPLIT MORNING (Day 2) ── */
+.tl-split { position: relative; padding-left: 1.4rem; margin-bottom: 1.2rem; opacity: 0; transform: translateX(-20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.tl-split.visible { opacity: 1; transform: translateX(0); }
+.split-card { background: var(--card); border-radius: 16px; border: 1px solid rgba(44,110,138,0.14); box-shadow: 0 2px 16px rgba(44,110,138,0.08); overflow: hidden; }
+.split-header { background: linear-gradient(135deg, rgba(44,110,138,0.08), rgba(90,136,181,0.06)); padding: 0.85rem 1.3rem; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid rgba(44,110,138,0.1); }
+.split-header-icon { font-size: 16px; }
+.split-header-title { font-family: 'Lato', sans-serif; font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--primary); font-weight: 700; }
+.split-header-time { font-family: 'Lato', sans-serif; font-size: 0.65rem; letter-spacing: 0.1em; color: var(--muted); margin-left: auto; }
+.split-grid { display: grid; grid-template-columns: 1fr 1px 1fr; }
+@media (max-width: 600px) { .split-grid { grid-template-columns: 1fr; } }
+.split-vline { background: rgba(44,110,138,0.1); }
+@media (max-width: 600px) { .split-vline { height: 1px; width: 100%; } }
+.split-person { padding: 1.2rem 1.3rem; }
+.split-person-name { display: flex; align-items: center; gap: 6px; font-family: 'Noto Serif JP', serif; font-weight: 700; font-size: 0.95rem; color: var(--ink); margin-bottom: 0.9rem; padding-bottom: 0.6rem; border-bottom: 1px dashed rgba(44,110,138,0.15); }
+.split-person-emoji { font-size: 18px; }
+
+/* weather blocks */
+.weather-block { margin-bottom: 0.9rem; }
+.weather-label { display: inline-flex; align-items: center; gap: 5px; font-family: 'Lato', sans-serif; font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; padding: 2px 10px; border-radius: 100px; margin-bottom: 7px; }
+.weather-label.sunny { background: rgba(192,156,90,0.15); color: #7a5e00; }
+.weather-label.rainy { background: rgba(90,136,181,0.13); color: #2a4e7a; }
+.weather-spot { display: flex; align-items: flex-start; gap: 7px; padding: 5px 0; border-bottom: 1px solid rgba(44,110,138,0.07); font-size: 12px; color: var(--ink); }
+.weather-spot:last-child { border-bottom: none; }
+.weather-spot-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+.weather-spot-body { flex: 1; min-width: 0; }
+.weather-spot-name { font-weight: 500; font-size: 12px; }
+.weather-spot-links { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 3px; }
+.weather-spot-link { font-size: 9px; font-family: 'Lato', sans-serif; padding: 1px 7px; border-radius: 100px; border: 1px solid rgba(44,110,138,0.25); color: var(--primary); text-decoration: none; transition: all 0.15s; }
+.weather-spot-link:hover { background: var(--primary); color: white; }
+.weather-spot-link.naver { border-color: rgba(3,199,90,0.4); color: #029944; }
+.weather-spot-link.naver:hover { background: #03c75a; color: white; border-color: #03c75a; }
+
+/* ── WEATHER TOGGLE (Day 2 Night) ── */
+.weather-choice { margin-top: 12px; border-radius: 12px; overflow: hidden; border: 1px solid rgba(44,110,138,0.15); }
+.wc-tab-row { display: flex; }
+.wc-tab { flex: 1; padding: 8px; font-family: 'Lato', sans-serif; font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; text-align: center; cursor: pointer; transition: all 0.2s; border: none; background: rgba(44,110,138,0.04); color: var(--muted); }
+.wc-tab.active-sun { background: rgba(192,156,90,0.12); color: #7a5e00; }
+.wc-tab.active-rain { background: rgba(90,136,181,0.12); color: #2a4e7a; }
+.wc-panel { display: none; padding: 12px 14px; background: white; }
+.wc-panel.active { display: block; }
+.wc-title { font-family: 'Noto Serif JP', serif; font-weight: 600; font-size: 0.95rem; color: var(--ink); margin-bottom: 6px; }
+.wc-memo { font-size: 12px; color: var(--muted); line-height: 1.6; margin-bottom: 8px; }
+.wc-points { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+.wc-points li { font-size: 12px; color: var(--ink); padding: 3px 0; border-bottom: 1px solid rgba(44,110,138,0.07); display: flex; align-items: center; gap: 6px; }
+.wc-points li:last-child { border-bottom: none; }
+.wc-links { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+.wc-link { font-size: 10px; font-family: 'Lato', sans-serif; padding: 2px 9px; border-radius: 100px; border: 1px solid rgba(44,110,138,0.25); color: var(--primary); text-decoration: none; transition: all 0.15s; }
+.wc-link:hover { background: var(--primary); color: white; }
+.wc-link.naver { border-color: rgba(3,199,90,0.4); color: #029944; }
+.wc-link.naver:hover { background: #03c75a; color: white; border-color: #03c75a; }
+
+/* PITSTOP */
+.tl-pitstop { position: relative; padding-left: 2rem; margin-bottom: 10px; margin-top: -6px; opacity: 0; transform: translateX(-20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.tl-pitstop.visible { opacity: 1; transform: translateX(0); }
+.tl-pitstop-dot { position: absolute; left: -2.3rem; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 2px var(--bg), 0 0 0 3.5px rgba(192,156,90,0.3); z-index: 1; }
+.tl-pitstop-card { display: flex; align-items: center; gap: 10px; background: rgba(250,240,226,0.4); border: 1px dashed rgba(192,156,90,0.45); border-radius: 10px; padding: 8px 12px; transition: background 0.2s; }
+.tl-pitstop-card:hover { background: rgba(250,240,226,0.7); }
+.pitstop-icon { font-size: 18px; flex-shrink: 0; }
+.pitstop-body { flex: 1; min-width: 0; }
+.pitstop-name { font-family: 'Noto Serif JP', serif; font-weight: 400; font-size: 13px; color: var(--ink); line-height: 1.3; }
+.pitstop-memo { font-size: 11px; color: var(--muted); margin-top: 1px; line-height: 1.4; }
+.pitstop-links { display: flex; gap: 5px; margin-top: 4px; flex-wrap: wrap; }
+.pitstop-link { font-size: 10px; font-family: 'Lato', sans-serif; padding: 1px 8px; border-radius: 100px; border: 1px solid rgba(192,156,90,0.4); color: #7a5e00; text-decoration: none; transition: all 0.15s; }
+.pitstop-link:hover { background: var(--gold); color: white; border-color: var(--gold); }
+.pitstop-link.naver { border-color: rgba(3,199,90,0.4); color: #029944; }
+.pitstop-link.naver:hover { background: #03c75a; color: white; border-color: #03c75a; }
+.pitstop-badge { font-size: 9px; font-family: 'Lato', sans-serif; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 7px; border-radius: 8px; background: rgba(192,156,90,0.15); color: #7a5e00; flex-shrink: 0; }
+
+/* PIT STOPS SECTION */
+.ps-item { display: flex; align-items: flex-start; gap: 9px; padding: 10px 0; border-bottom: 1px solid rgba(44,110,138,0.08); }
+.ps-item:last-child { border-bottom: none; }
+.ps-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+.ps-body { flex: 1; min-width: 0; }
+.ps-name { font-family: 'Noto Serif JP', serif; font-weight: 400; font-size: 13px; color: var(--ink); }
+.ps-memo { font-size: 11px; color: var(--muted); margin-top: 2px; line-height: 1.4; }
+.ps-links { display: flex; gap: 5px; margin-top: 5px; flex-wrap: wrap; }
+.ps-link { font-size: 10px; font-family: 'Lato', sans-serif; padding: 1px 8px; border-radius: 100px; border: 1px solid rgba(44,110,138,0.25); color: var(--primary); text-decoration: none; transition: all 0.15s; }
+.ps-link:hover { background: var(--primary); color: white; }
+.ps-link.naver { border-color: rgba(3,199,90,0.4); color: #029944; }
+.ps-link.naver:hover { background: #03c75a; color: white; border-color: #03c75a; }
+.ps-empty { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem 1rem; color: var(--muted); gap: 6px; }
+.ps-empty-icon { font-size: 28px; opacity: 0.4; }
+.ps-empty-text { font-size: 12px; font-family: 'Lato', sans-serif; letter-spacing: 0.08em; }
+
+/* FOOTER */
+.footer { background: rgba(240,245,249,0.98); border-top: 1px solid rgba(44,110,138,0.15); padding: 3rem 2rem; text-align: center; }
+.footer-title { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--primary); font-style: italic; margin-bottom: 0.4rem; }
+.footer-sub { font-family: 'Lato', sans-serif; font-weight: 400; font-size: 0.72rem; letter-spacing: 0.3em; color: var(--muted); text-transform: uppercase; }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 640px) {
+  .hero { min-height: 60vh; padding: 2.5rem 1.2rem 3rem; }
+  .section { padding: 2rem 1.2rem; }
+  .days-section { padding: 2rem 1.2rem; }
+  .checklist-section { padding: 2.5rem 1.2rem; }
+  .hero-chips { gap: 0.5rem; }
+  .hero-chip { font-size: 0.75rem; padding: 0.35rem 0.9rem; }
+  .flight-grid { grid-template-columns: 1fr; gap: 0.8rem; }
+  .checklist-grid { grid-template-columns: 1fr; gap: 0.8rem; }
+  .overview-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- STICKY NAV -->
+<nav class="sticky-nav" id="stickyNav">
+  <a href="#" class="nav-logo">Seoul '26</a>
+  <ul class="nav-links">
+    <li><a href="#overview">概要</a></li>
+    <li><a href="#hotel">ホテル</a></li>
+    <li><a href="#flight">フライト</a></li>
+    <li><a href="#checklist">準備</a></li>
+    <li><a href="#days">旅程</a></li>
+    <li><a href="#pitstops">スポット</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Travel Itinerary · 2026</p>
+    <h1 class="hero-title"><em>Seoul</em></h1>
+    <p class="hero-ja">ソウル美容旅 ✨</p>
+    <div class="hero-chips">
+      <span class="hero-chip">📅 Jun 27 – 29, 2026</span>
+      <span class="hero-chip">✈ イースター航空 ZE612 / ZE613</span>
+      <span class="hero-chip">🏨 シーラステイ ソチョ</span>
+    </div>
+  </div>
+
+</section>
+
+<!-- OVERVIEW -->
+<section id="overview" style="background:white;padding:0;">
+  <div class="section">
+    <p class="section-eyebrow reveal">Overview</p>
+    <h2 class="section-title reveal">旅の<em>概要</em></h2>
+    <div class="overview-grid">
+      <div class="overview-card reveal"><div class="overview-card-icon">📅</div><div class="overview-card-label">Schedule</div><div class="overview-card-val">2026/6/27（土）〜 6/29（月）</div><div class="overview-card-sub">2泊3日 · 女子2人旅</div></div>
+      <div class="overview-card reveal"><div class="overview-card-icon">🏨</div><div class="overview-card-label">Hotel</div><div class="overview-card-val">シーラステイ ソチョ</div><div class="overview-card-sub">瑞草区 · 2泊</div></div>
+      <div class="overview-card reveal"><div class="overview-card-icon">🌧️</div><div class="overview-card-label">Weather</div><div class="overview-card-val">梅雨時期 · 23〜30℃</div><div class="overview-card-sub">雨の日の代替プランも用意 ☔ 折りたたみ傘必須！</div></div>
+      <div class="overview-card reveal"><div class="overview-card-icon">💱</div><div class="overview-card-label">Currency</div><div class="overview-card-val">韓国ウォン（KRW）</div><div class="overview-card-sub">1,000KRW ≈ 108円</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-line"></div>
+
+<!-- HOTEL -->
+<div id="hotel"><div class="section">
+  <p class="section-eyebrow reveal">Accommodation</p>
+  <h2 class="section-title reveal">ホテル<em>情報</em></h2>
+  <div class="hotel-card reveal">
+    <div class="hotel-img" style="background:linear-gradient(135deg,#2c6e8a,#1a2840);">
+      <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2d/f3/f5/cb/guest-room.jpg?w=1400&h=-1&s=1" alt="Shilla Stay Seocho" onerror="this.style.display='none'">🏨
+    </div>
+    <div class="hotel-body">
+      <div class="hotel-name">Shilla Stay Seocho</div>
+      <div class="hotel-sub">シーラステイ ソチョ · デラックスツイン</div>
+      <div class="hotel-row"><div class="hotel-row-label">Check-in</div><div>6月27日（土） 15:00〜</div></div>
+      <div class="hotel-row"><div class="hotel-row-label">Check-out</div><div>6月29日（月） 〜11:00</div></div>
+      <div class="hotel-row"><div class="hotel-row-label">Location</div><div>瑞草区 · 地下鉄 3号線 ヤンジェ駅 徒歩10分</div></div>
+      <div class="hotel-row"><div class="hotel-row-label">Room</div><div>デラックスツイン · シングルベッド×2 · バスタブあり · 冷蔵庫 · ドライヤー · セーフティボックス · 無料Wi-Fi</div></div>
+      <a href="https://www.agoda.com/ja-jp/shilla-stay-seocho/hotel/seoul-kr.html?cid=1844104&ds=N78xdkRv3MkMxRCM" target="_blank" class="hotel-btn">📋 Agoda</a>
+      <a href="https://naver.me/GUTmwEU9" target="_blank" class="hotel-btn naver" style="margin-left:8px;">🗺 Naver Map</a>
+    </div>
+  </div>
+</div></div>
+
+<div class="divider-line"></div>
+
+<!-- FLIGHTS -->
+<div id="flight" style="background:white;padding:0;"><div class="section">
+  <p class="section-eyebrow reveal">Flights</p>
+  <h2 class="section-title reveal">フライト<em>情報</em></h2>
+  <div class="flight-grid">
+    <!-- Outbound -->
+    <div class="flight-card reveal">
+      <div class="flight-badge out">Outbound</div>
+      <div style="font-size:11px;color:var(--muted);font-family:'Lato',sans-serif;margin-bottom:0.8rem;">Saturday, June 27, 2026</div>
+      <div class="flight-num">ZE 612</div>
+      <div class="flight-airline">イースター航空 · エコノミー X</div>
+      <div class="flight-route">
+        <div class="flight-airport"><div class="flight-code">KIX</div><div class="flight-city">大阪 関西</div><div class="flight-time">12:10</div></div>
+        <div class="flight-arrow"><div class="flight-line"></div><div class="flight-dur">1h 50m</div></div>
+        <div class="flight-airport"><div class="flight-code">ICN</div><div class="flight-city">ソウル 仁川</div><div class="flight-time">14:00</div></div>
+      </div>
+      <div class="flight-info">
+        <div class="flight-info-row"><span>Terminal</span><span>KIX T1発 / ICN T1着</span></div>
+        <div class="flight-info-row"><span>Duration</span><span>1時間50分（直行）</span></div>
+      </div>
+    </div>
+    <!-- Return -->
+    <div class="flight-card reveal">
+      <div class="flight-badge ret">Return</div>
+      <div style="font-size:11px;color:var(--muted);font-family:'Lato',sans-serif;margin-bottom:0.8rem;">Monday, June 29, 2026</div>
+      <div class="flight-num">ZE 613</div>
+      <div class="flight-airline">イースター航空 · エコノミー A</div>
+      <div class="flight-route">
+        <div class="flight-airport"><div class="flight-code">ICN</div><div class="flight-city">ソウル 仁川</div><div class="flight-time">15:15</div></div>
+        <div class="flight-arrow"><div class="flight-line"></div><div class="flight-dur">1h 45m</div></div>
+        <div class="flight-airport"><div class="flight-code">KIX</div><div class="flight-city">大阪 関西</div><div class="flight-time">17:00</div></div>
+      </div>
+      <div class="flight-info">
+        <div class="flight-info-row"><span>Terminal</span><span>ICN T1発 / KIX T1着</span></div>
+        <div class="flight-info-row"><span>Duration</span><span>1時間45分（直行）</span></div>
+      </div>
+    </div>
+  </div>
+</div></div>
+
+<div class="divider-line"></div>
+
+<!-- CHECKLIST -->
+<section class="checklist-section" id="checklist">
+  <div class="checklist-inner">
+    <p class="section-eyebrow reveal">Preparation</p>
+    <h2 class="section-title reveal">準備<em>チェックリスト</em></h2>
+    <div class="checklist-grid">
+      <div class="checklist-group reveal">
+        <div class="checklist-group-title">📋 行く前の準備</div>
+        <div class="check-item" onclick="toggleCheck(this,'p1')"><div class="check-box"></div><span class="check-label">フライトのオンラインチェックイン<small>出発前日〜。座席確認も忘れずに</small></span></div>
+        <div class="check-item" onclick="toggleCheck(this,'p2')"><div class="check-box"></div><span class="check-label">電子入国カードの申請<small>2023年4月〜再導入。事前に申請必要！数日かかる場合あり</small></span></div>
+        <div class="check-item" onclick="toggleCheck(this,'p3')"><div class="check-box"></div><span class="check-label">eSIMまたはSIMカードの手配<small>韓国用データSIM。空港到着後すぐ繋げるように日本で準備</small></span></div>
+        <div class="check-item" onclick="toggleCheck(this,'p4')"><div class="check-box"></div><span class="check-label">Naverマップのオフラインデータ保存<small>韓国はGoogleマップより精度高め。アプリ入れておくと吉</small></span></div>
+        <div class="check-item" onclick="toggleCheck(this,'p5')"><div class="check-box"></div><span class="check-label">T-moneyカードの手配（任意）<small>地下鉄・バスで使える交通系ICカード。空港でも購入可</small></span></div>
+      </div>
+      <div class="checklist-group reveal">
+        <div class="checklist-group-title">🎒 持ち物リスト</div>
+        <div class="check-item" onclick="toggleCheck(this,'b1')"><div class="check-box"></div><span class="check-label">パスポート<small>残存有効期間6ヶ月以上か確認</small></span></div>
+        <div class="check-item" onclick="toggleCheck(this,'b2')"><div class="check-box"></div><span class="check-label">クレジットカード・現金（KRW / 円）<small>VisaかMastercardが便利。高速ターミナル近くにATMあり</small></span></div>
+        <div class="check-item" onclick="toggleCheck(this,'b3')"><div class="check-box"></div><span class="check-label">充電器・変換プラグ<small>韓国はCタイプ（丸ピン2本）。日本のAタイプは要変換</small></span></div>
+        <div class="check-item" onclick="toggleCheck(this,'b4')"><div class="check-box"></div><span class="check-label">モバイルバッテリー<small>必ず機内持ち込み手荷物へ！</small></span></div>
+        <div class="check-item" onclick="toggleCheck(this,'b5')"><div class="check-box"></div><span class="check-label">折りたたみ傘<small>梅雨時期なので必携。急なゲリラ豪雨あり</small></span></div>
+        <div class="check-item" onclick="toggleCheck(this,'b7')"><div class="check-box"></div><span class="check-label">着替え・パジャマ</span></div>
+        <div class="check-item" onclick="toggleCheck(this,'b8')"><div class="check-box"></div><span class="check-label">歩きやすいスニーカー<small>江南エリアは舗装されてるけど意外と歩く</small></span></div>
+        <div class="check-item" onclick="toggleCheck(this,'b10')"><div class="check-box"></div><span class="check-label">スキンケア<small>肌管理後は敏感なので普段のものを持参</small></span></div>
+        <div class="check-item" onclick="toggleCheck(this,'b14')"><div class="check-box"></div><span class="check-label">ヘアアイロン<small>韓国はCタイプ電源。変換プラグ必須</small></span></div>
+        <div class="check-item" onclick="toggleCheck(this,'b15')"><div class="check-box"></div><span class="check-label">マスク</span></div>
+        <div class="check-item" onclick="toggleCheck(this,'b11')"><div class="check-box"></div><span class="check-label">常備薬（胃腸薬・頭痛薬）<small>辛いもの食べすぎ対策に胃薬は必須</small></span></div>
+        <div class="check-item" onclick="toggleCheck(this,'b12')"><div class="check-box"></div><span class="check-label">日焼け止め<small>梅雨でも紫外線は強い</small></span></div>
+        <div class="check-item" onclick="toggleCheck(this,'b9')"><div class="check-box"></div><span class="check-label">大きめエコバッグ・トートバッグ<small>ダイソー・マート戦利品用に必須🛍️</small></span></div>
+        <div class="check-item" onclick="toggleCheck(this,'b13')"><div class="check-box"></div><span class="check-label">ウェットティッシュ・ポケットティッシュ</span></div>
+      </div>
+    </div>
+    <div class="progress-wrap reveal">
+      <div class="progress-label"><span>PROGRESS</span><span id="progress-text">0 / 20 完了</span></div>
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- DAYS -->
+<section class="days-section" id="days">
+  <div class="days-inner">
+    <p class="section-eyebrow reveal">Daily Itinerary</p>
+    <h2 class="section-title reveal">3日間の<em>旅程</em></h2>
+    <div class="day-tabs reveal">
+      <button class="day-tab active" onclick="showDay('day1',this)">Day 1 · 6/27</button>
+      <button class="day-tab" onclick="showDay('day2',this)">Day 2 · 6/28</button>
+      <button class="day-tab" onclick="showDay('day3',this)">Day 3 · 6/29</button>
+    </div>
+
+    <!-- ═══ DAY 1 ═══ -->
+    <div class="day-panel active" id="day1">
+      <div class="day-header">
+        <div class="day-num-big">01</div>
+        <div class="day-info">
+          <div class="day-date-en">Saturday, June 27, 2026</div>
+          <div class="day-title-ja">Skin Care & Gangnam Night Out</div>
+          <div class="day-sub-ja">ソウル到着！まず肌を整えて、夜は江南でご機嫌に🍺</div>
+        </div>
+      </div>
+      <div class="timeline">
+
+        <!-- フライト -->
+        <div class="tl-item tl-transit"><div class="tl-dot"></div><div class="tl-card">
+          <div class="tl-header"><span class="tl-time">12:10</span><span class="tl-cat cat-move">Flight</span><span class="tl-title">KIX 出発</span></div>
+          <div class="tl-body">いよいよ出発！フライトは約1時間50分とあっという間✈️</div>
+          <div class="tl-note">ZE612便 · 関西国際空港 T1 → 仁川国際空港 T1</div>
+        </div></div>
+
+        <div class="tl-item tl-transit"><div class="tl-dot"></div><div class="tl-card">
+          <div class="tl-header"><span class="tl-time">14:00</span><span class="tl-cat cat-move">Arrival</span><span class="tl-title">ICN 到着</span></div>
+          <div class="tl-body">入国審査を済ませてeSIMを繋げて、いざソウルへ！</div>
+        </div></div>
+
+        <div class="tl-item tl-transit"><div class="tl-dot"></div><div class="tl-card">
+          <div class="tl-header"><span class="tl-time">15:30〜</span><span class="tl-cat cat-move">Bus</span><span class="tl-title">空港バスでホテルへ移動</span></div>
+          <div class="tl-body">仁川〜江南・ソチョエリア行きのリムジンバスが便利。約90分。</div>
+          <div class="tl-note">🚌 6009番バス / 17,000ウォン · T-moneyまたは現金で乗車。荷物はバス下部に収納できる<br>💡 18:00の肌管理に間に合わなさそうなら空港からクリニックまでタクシーで直行を（目安 約60分 / 約60,000ウォン）</div>
+        </div></div>
+
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-card">
+          <div class="tl-header"><span class="tl-time">17:30〜</span><span class="tl-cat cat-hotel">Hotel</span><span class="tl-title">シーラステイ ソチョ チェックイン</span></div>
+          <div class="tl-body">荷物を置いてさっとリフレッシュ！肌管理に備えてメイクは薄めに仕上げておくと◎</div>
+          <div class="tl-links">
+            <a class="tl-link naver" href="https://naver.me/GUTmwEU9" target="_blank">🗺 Naver Map</a>
+          </div>
+        </div></div>
+
+        <!-- プムグローバルクリニック -->
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-card">
+          <div class="tl-header"><span class="tl-time">18:00〜</span><span class="tl-cat cat-beauty">Beauty</span><span class="tl-title">プムグローバルクリニック — 肌管理</span></div>
+          <div class="tl-body">2人とも施術予定。カウンセリングで当日の肌状態に合わせて組み合わせを決める🌿</div>
+          <ul style="margin:10px 0 4px 0;list-style:none;display:flex;flex-direction:column;gap:6px;">
+            <li style="display:flex;align-items:flex-start;gap:10px;padding:8px 10px;background:rgba(196,96,122,0.05);border:1px solid rgba(196,96,122,0.12);border-radius:9px;">
+              <span style="font-size:15px;flex-shrink:0;">✨</span>
+              <div><div style="font-size:13px;font-weight:600;color:var(--ink);margin-bottom:2px;">水光ピール</div><div style="font-size:11px;color:var(--muted);">毛穴・くすみに効果的。ダウンタイム少なめで旅行中でも安心</div></div>
+            </li>
+            <li style="display:flex;align-items:flex-start;gap:10px;padding:8px 10px;background:rgba(196,96,122,0.05);border:1px solid rgba(196,96,122,0.12);border-radius:9px;">
+              <span style="font-size:15px;flex-shrink:0;">💧</span>
+              <div><div style="font-size:13px;font-weight:600;color:var(--ink);margin-bottom:2px;">LDM</div><div style="font-size:11px;color:var(--muted);">超音波による浸透促進。保湿・ハリ効果。敏感肌でも受けやすい</div></div>
+            </li>
+          </ul>
+          <div style="font-size:11px;color:var(--muted);margin:8px 0 4px;font-family:'Lato',sans-serif;letter-spacing:0.05em;">🕐 10:00〜19:00</div>
+          <div class="tl-links">
+            <a class="tl-link" href="https://maps.app.goo.gl/mmFNZ612AV5w3zEL6?g_st=ipc" target="_blank">📍 Google Map</a>
+            <a class="tl-link naver" href="https://naver.me/FBMaoB2t" target="_blank">🗺 Naver Map</a>
+          </div>
+        </div></div>
+
+        <!-- 江南飲み -->
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-card">
+          <div class="tl-header"><span class="tl-time">20:00〜</span><span class="tl-cat cat-night">Night</span><span class="tl-title">江南〜シンノンヒョンエリア 夜飲み 🍺</span></div>
+          <div class="tl-body">肌管理終わりでそのまま江南で解放🎉 気分でジャンルを選ぼう！</div>
+
+          <div class="candidates-label" style="margin-top:14px;">🍻 ジャンキーはしご酒系</div>
+          <div class="tl-candidates">
+            <div class="tl-candidate">
+              <div class="cand-header"><div class="cand-name">ハンサバルポチャ 論峴店</div></div>
+              <div class="cand-memo">韓国式屋台居酒屋（ポチャ）。雰囲気抜群でチヂミ・海鮮料理とソジュが鉄板</div>
+              <div style="font-size:10px;color:var(--muted);margin:4px 0 6px;font-family:'Lato',sans-serif;">🕐 17:00〜3:00</div>
+              <div class="cand-links">
+                <a class="cand-link naver" href="https://naver.me/51u7UJa7" target="_blank">🗺 Naver Map</a>
+                <button class="cand-pick-btn" onclick="pickCand(this)">★ ここに決める</button><button class="cand-unpick-btn" onclick="unpickCand(this)">× 解除</button>
+              </div>
+            </div>
+            <div class="tl-candidate">
+              <div class="cand-header"><div class="cand-name">サムドクトンダク シンノンヒョン店</div></div>
+              <div class="cand-memo">韓国式フライドチキン専門店。カリッカリのチキンとビール（チメク）で最高の夜に</div>
+              <div style="font-size:10px;color:var(--muted);margin:4px 0 6px;font-family:'Lato',sans-serif;">🕐 平日 16:00〜1:00 / 土日 15:00〜2:00</div>
+              <div class="cand-links">
+                <a class="cand-link naver" href="https://naver.me/5mvhcpNT" target="_blank">🗺 Naver Map</a>
+                <button class="cand-pick-btn" onclick="pickCand(this)">★ ここに決める</button><button class="cand-unpick-btn" onclick="unpickCand(this)">× 解除</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="candidates-label" style="margin-top:14px;">🥩 ガッツリお肉系</div>
+          <div class="tl-candidates">
+            <div class="tl-candidate">
+              <div class="cand-header"><div class="cand-name">ユクミアン 江南店</div></div>
+              <div class="cand-memo">上質な韓国式焼肉。肉の質にこだわったガッツリ系</div>
+              <div style="font-size:10px;color:var(--muted);margin:4px 0 6px;font-family:'Lato',sans-serif;">🕐 平日 12:00〜22:00 / 土日 12:00〜23:00</div>
+              <div class="cand-links">
+                <a class="cand-link naver" href="https://naver.me/GxrLwjLS" target="_blank">🗺 Naver Map</a>
+                <button class="cand-pick-btn" onclick="pickCand(this)">★ ここに決める</button><button class="cand-unpick-btn" onclick="unpickCand(this)">× 解除</button>
+              </div>
+            </div>
+            <div class="tl-candidate">
+              <div class="cand-header"><div class="cand-name">ボンウ二階の家</div></div>
+              <div class="cand-memo">コプチャン（ホルモン焼き）が名物。地元民に愛されるローカルな雰囲気</div>
+              <div style="font-size:10px;color:var(--muted);margin:4px 0 6px;font-family:'Lato',sans-serif;">🕐 11:00〜24:00</div>
+              <div class="cand-links">
+                <a class="cand-link naver" href="https://naver.me/FNtI8QBk" target="_blank">🗺 Naver Map</a>
+                <button class="cand-pick-btn" onclick="pickCand(this)">★ ここに決める</button><button class="cand-unpick-btn" onclick="unpickCand(this)">× 解除</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="candidates-label" style="margin-top:14px;">🦀 さっぱり海鮮系</div>
+          <div class="tl-candidates">
+            <div class="tl-candidate">
+              <div class="cand-header"><div class="cand-name">プロ間醤ワタリガニ 新沙本店</div></div>
+              <div class="cand-memo">醤油漬けワタリガニ（カンジャンケジャン）の専門店。ご飯泥棒と呼ばれる一品</div>
+              <div style="font-size:10px;color:var(--muted);margin:4px 0 6px;font-family:'Lato',sans-serif;">🕐 10:00〜23:00</div>
+              <div class="cand-links">
+                <a class="cand-link naver" href="https://naver.me/5WU9jBAF" target="_blank">🗺 Naver Map</a>
+                <button class="cand-pick-btn" onclick="pickCand(this)">★ ここに決める</button><button class="cand-unpick-btn" onclick="unpickCand(this)">× 解除</button>
+              </div>
+            </div>
+            <div class="tl-candidate">
+              <div class="cand-header"><div class="cand-name">ウギ食堂 バダ店</div></div>
+              <div class="cand-memo">海鮮系居酒屋。新鮮な魚介とソジュでさっぱり締めるのに最高</div>
+              <div style="font-size:10px;color:var(--muted);margin:4px 0 6px;font-family:'Lato',sans-serif;">🕐 平日 17:00〜1:00 / 土日 16:00〜2:00</div>
+              <div class="cand-links">
+                <a class="cand-link naver" href="https://naver.me/5p0qdEGB" target="_blank">🗺 Naver Map</a>
+                <button class="cand-pick-btn" onclick="pickCand(this)">★ ここに決める</button><button class="cand-unpick-btn" onclick="unpickCand(this)">× 解除</button>
+              </div>
+            </div>
+          </div>
+        </div></div>
+
+      </div>
+    </div><!-- /day1 -->
+
+    <!-- ═══ DAY 2 ═══ -->
+    <div class="day-panel" id="day2">
+      <div class="day-header">
+        <div class="day-num-big">02</div>
+        <div class="day-info">
+          <div class="day-date-en">Sunday, June 28, 2026</div>
+          <div class="day-title-ja">Local Vibes & Beauty Experience</div>
+          <div class="day-sub-ja">午前はそれぞれ自由行動。午後から合流してソウルを満喫💃</div>
+        </div>
+      </div>
+      <div class="timeline">
+
+        <!-- SPLIT MORNING -->
+        <div class="tl-split" id="splitMorning"><div class="tl-dot" style="background:linear-gradient(135deg,#c4607a,#5a88b5);box-shadow:0 0 0 3px var(--bg),0 0 0 5px rgba(196,96,122,0.2);"></div>
+          <div class="split-card">
+            <div class="split-header">
+              <span class="split-header-icon">🌅</span>
+              <span class="split-header-title">午前 — それぞれの朝</span>
+              <span class="split-header-time">〜11:30 合流まで</span>
+            </div>
+
+            <!-- ちか -->
+            <div class="split-person" style="margin-bottom:0.5rem;padding-bottom:0.5rem;">
+              <div class="split-person-name"><span class="split-person-emoji">🏃‍♀️</span> ちか — 朝活 &amp; COEX</div>
+
+              <div class="weather-block" style="margin-bottom:0.9rem;">
+                <div class="weather-label sunny" style="background:rgba(90,136,181,0.13);color:#2a4e7a;">💪 まず朝トレ</div>
+                <div class="weather-spot">
+                  <span class="weather-spot-icon">🏋️</span>
+                  <div class="weather-spot-body">
+                    <div class="weather-spot-name">ホテルジムで朝トレ</div>
+                    <div style="font-size:11px;color:var(--muted);">体を動かしてスッキリしてから出発</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="weather-block" style="margin-bottom:0.9rem;">
+                <div class="weather-label sunny" style="background:rgba(192,156,90,0.15);color:#7a5e00;">🍳 朝食候補</div>
+                <div class="weather-spot">
+                  <span class="weather-spot-icon">🍵</span>
+                  <div class="weather-spot-body">
+                    <div class="weather-spot-name">ジニ アワビ粥</div>
+                    <div style="font-size:11px;color:var(--muted);">アワビお粥の専門店。やさしい味で朝にぴったり</div>
+                    <div style="font-size:10px;color:var(--muted);margin:2px 0 4px;font-family:'Lato',sans-serif;">🕐 10:10〜20:20（Break 15:30〜17:00）</div>
+                    <div class="weather-spot-links">
+                      <a class="weather-spot-link naver" href="https://naver.me/xUZ4Qh8C" target="_blank">🗺 Naver</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="weather-spot">
+                  <span class="weather-spot-icon">🥛</span>
+                  <div class="weather-spot-body">
+                    <div class="weather-spot-name">Lazy Yogurt 江南店</div>
+                    <div style="font-size:11px;color:var(--muted);">ヨーグルト専門カフェ。軽めに済ませたいときに</div>
+                    <div style="font-size:10px;color:var(--muted);margin:2px 0 4px;font-family:'Lato',sans-serif;">🕐 10:00〜20:00</div>
+                    <div class="weather-spot-links">
+                      <a class="weather-spot-link naver" href="https://naver.me/xpjBIXbZ" target="_blank">🗺 Naver</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="weather-spot">
+                  <span class="weather-spot-icon">🍲</span>
+                  <div class="weather-spot-body">
+                    <div class="weather-spot-name">全州現代屋 江南大路店</div>
+                    <div style="font-size:11px;color:var(--muted);">豆もやしクッパの名店。朝からしっかり食べたいときに</div>
+                    <div style="font-size:10px;color:var(--muted);margin:2px 0 4px;font-family:'Lato',sans-serif;">🕐 平日 9:00〜21:00 / 土日 9:10〜21:00</div>
+                    <div class="weather-spot-links">
+                      <a class="weather-spot-link naver" href="https://naver.me/xRhDQSQt" target="_blank">🗺 Naver</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="weather-block">
+                <div class="weather-label sunny" style="background:rgba(44,110,138,0.1);color:#1e4e7a;">🏬 COEXへ</div>
+                <div class="weather-spot">
+                  <span class="weather-spot-icon">📚</span>
+                  <div class="weather-spot-body">
+                    <div class="weather-spot-name">Starfield Library</div>
+                    <div style="font-size:11px;color:var(--muted);">COEX内。映える本棚で有名な図書館</div>
+                    <div style="font-size:10px;color:var(--muted);margin:2px 0 4px;font-family:'Lato',sans-serif;">🕐 10:30〜22:00（スタフィールドコエックスモール全体）</div>
+                  </div>
+                </div>
+                <div class="weather-spot">
+                  <span class="weather-spot-icon">🛍️</span>
+                  <div class="weather-spot-body">
+                    <div class="weather-spot-name">CELINE — 現代百貨店 貿易センター店</div>
+                    <div style="font-size:11px;color:var(--muted);">バッグ購入目的。COEXに直結。売り切れの場合はギャラリア百貨店 名品館 EAST店へ。</div>
+                    <div style="font-size:10px;color:var(--muted);margin:2px 0 4px;font-family:'Lato',sans-serif;">🕐 平日 10:30〜20:00 / 金〜日 10:30〜20:30</div>
+                    <div class="weather-spot-links">
+                      <a class="weather-spot-link naver" href="https://naver.me/FiPvVfUv" target="_blank">🗺 貿易センター</a>
+                      <a class="weather-spot-link naver" href="https://naver.me/56X5HmLB" target="_blank">🗺 ギャラリア（保険）</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- りさ -->
+            <div class="split-person">
+              <div class="split-person-name"><span class="split-person-emoji">🛌</span> りさ — 朝ゆっくり</div>
+              <div style="font-size:13px;color:var(--muted);line-height:1.7;">
+                ひたすら寝る😴<br>起きれたらCOEXでちかと合流🏬<br>11:30の合流まで完全フリー。
+              </div>
+            </div>
+
+          </div>
+        </div><!-- /split -->
+
+        <!-- 江南ランチ -->
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-card">
+          <div class="tl-header"><span class="tl-cat cat-food">Lunch</span><span class="tl-title">江南ランチ 🍽️</span></div>
+          <div class="tl-body">買い物の前後に。韓食か洋食か気分で選ぼう！</div>
+          <div class="candidates-label" style="margin-top:14px;">Choices</div>
+          <div class="tl-candidates">
+            <div class="tl-candidate">
+              <div class="cand-header"><div class="cand-name">ヨンチョン映画 清潭店</div></div>
+              <div class="cand-memo">清潭にある24時間営業の韓食。時間を気にせず行けるのが強み</div>
+              <div style="font-size:10px;color:var(--muted);margin:4px 0 6px;font-family:'Lato',sans-serif;">🕐 24時間</div>
+              <div class="cand-links">
+                <a class="cand-link naver" href="https://naver.me/xQJihtMN" target="_blank">🗺 Naver Map</a>
+                <button class="cand-pick-btn" onclick="pickCand(this)">★ ここに決める</button><button class="cand-unpick-btn" onclick="unpickCand(this)">× 解除</button>
+              </div>
+            </div>
+            <div class="tl-candidate">
+              <div class="cand-header"><div class="cand-name">名人等心 三成直営店</div></div>
+              <div class="cand-memo">厚切りカルビが名物の焼肉店。直営ならではの品質で締めの肉を楽しむ</div>
+              <div style="font-size:10px;color:var(--muted);margin:4px 0 6px;font-family:'Lato',sans-serif;">🕐 11:30〜22:00</div>
+              <div class="cand-links">
+                <a class="cand-link naver" href="https://naver.me/xWIz0Ypy" target="_blank">🗺 Naver Map</a>
+                <button class="cand-pick-btn" onclick="pickCand(this)">★ ここに決める</button><button class="cand-unpick-btn" onclick="unpickCand(this)">× 解除</button>
+              </div>
+            </div>
+            <div class="tl-candidate">
+              <div class="cand-header"><div class="cand-name">ムタン コエックス店</div></div>
+              <div class="cand-memo">COEXエリアのグルメスポット。牛骨スープ・冷麺系の韓国料理が揃う</div>
+              <div style="font-size:10px;color:var(--muted);margin:4px 0 6px;font-family:'Lato',sans-serif;">🕐 11:00〜21:30</div>
+              <div class="cand-links">
+                <a class="cand-link naver" href="https://naver.me/GowiSEDQ" target="_blank">🗺 Naver Map</a>
+                <button class="cand-pick-btn" onclick="pickCand(this)">★ ここに決める</button><button class="cand-unpick-btn" onclick="unpickCand(this)">× 解除</button>
+              </div>
+            </div>
+          </div>
+        </div></div>
+
+        <!-- OLIVE BETTER + オリーブヤング江南 -->
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-card">
+          <div class="tl-header"><span class="tl-time">11:30</span><span class="tl-cat cat-shop">Shop</span><span class="tl-title">コスメ &amp; ウェルネス買い物 💄</span></div>
+          <div class="tl-body">2人合流！江南駅周辺に固まってるのでまとめて制覇。ホテルから徒歩約15分。</div>
+
+          <div style="margin-top:12px;">
+            <div style="font-size:13px;font-family:'Lato',sans-serif;letter-spacing:0.08em;color:var(--primary);margin-bottom:4px;font-weight:700;">🌿 OLIVE BETTER</div>
+            <div style="font-size:12px;color:var(--muted);margin-bottom:4px;">オリーブヤングのウェルネス特化店。サプリ・イナービューティ・プロテイン・アロマなど「体の中から整える系」が揃う新業態</div>
+            <div style="font-size:11px;color:var(--muted);margin-bottom:6px;font-family:'Lato',sans-serif;">🕐 平日 9:00〜22:30 / 土日 10:00〜22:30</div>
+            <div class="tl-links" style="margin-top:0;">
+              <a class="tl-link" href="https://maps.app.goo.gl/UV44FraEeHaexbi89?g_st=ic" target="_blank">📍 Google Map</a>
+              <a class="tl-link naver" href="https://naver.me/I5wy5bKu" target="_blank">🗺 Naver Map</a>
+            </div>
+          </div>
+
+          <div style="margin-top:14px;">
+            <div style="font-size:13px;font-family:'Lato',sans-serif;letter-spacing:0.08em;color:var(--primary);margin-bottom:4px;font-weight:700;">💄 オリーブヤング 江南タウン（本店）</div>
+            <div style="font-size:12px;color:var(--muted);margin-bottom:4px;">江南エリアの旗艦店。1〜3階建てで品揃え最強。毎月変わるK-ビューティポップアップゾーンあり。コスメはここで！</div>
+            <div style="font-size:11px;color:var(--muted);margin-bottom:6px;font-family:'Lato',sans-serif;">🕐 10:00〜22:30 / 江南駅 10番出口から徒歩4分</div>
+            <div class="tl-links" style="margin-top:0;">
+              <a class="tl-link" href="https://maps.app.goo.gl/Ys6kqzpKBQSJB3Qa7" target="_blank">📍 Google Map</a>
+              <a class="tl-link naver" href="https://naver.me/xPQF9mMY" target="_blank">🗺 Naver Map</a>
+            </div>
+          </div>
+        </div></div>
+
+        <!-- 高速ターミナル -->
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-card">
+          <div class="tl-header"><span class="tl-time">昼</span><span class="tl-cat cat-shop">Shop</span><span class="tl-title">高速ターミナル ショッピング 🛍️</span></div>
+          <div class="tl-body">GOTO MALL・ダイソー・新世界百貨店が一帯に揃うお買い物の聖地。ホテルから地下鉄2駅でアクセスも楽。</div>
+
+          <div style="margin-top:10px;">
+            <div style="font-size:13px;font-family:'Lato',sans-serif;letter-spacing:0.08em;color:var(--primary);margin-bottom:6px;font-weight:700;">GOTO MALL</div>
+            <div style="font-size:12px;color:var(--muted);margin-bottom:4px;">地下にあるショッピングモール。ファッション・雑貨が充実</div>
+            <div style="font-size:11px;color:var(--muted);margin-bottom:6px;font-family:'Lato',sans-serif;">🕐 10:00〜22:00</div>
+            <div class="tl-links" style="margin-top:0;">
+              <a class="tl-link" href="https://maps.app.goo.gl/pSK7LtM8xTsm9tH8A?g_st=ic" target="_blank">📍 Google Map</a>
+              <a class="tl-link naver" href="https://naver.me/5NeM1AEY" target="_blank">🗺 Naver Map</a>
+            </div>
+          </div>
+
+          <div style="margin-top:12px;">
+            <div style="font-size:13px;font-family:'Lato',sans-serif;letter-spacing:0.08em;color:var(--primary);margin-bottom:4px;font-weight:700;">🛒 ダイソー 江南高速ターミナル店</div>
+            <div style="font-size:12px;color:var(--muted);margin-bottom:4px;">通路が広くエスカレーターで移動しやすい。キッチン用品が特に充実している。</div>
+            <div style="font-size:11px;color:var(--muted);margin-bottom:6px;font-family:'Lato',sans-serif;">🕐 10:00〜22:00</div>
+            <div class="tl-links" style="margin-top:0;">
+              <a class="tl-link" href="https://maps.app.goo.gl/PF3UAZDi3GcANG2H7?g_st=ic" target="_blank">📍 Google Map</a>
+              <a class="tl-link naver" href="https://naver.me/F4WL20L5" target="_blank">🗺 Naver Map</a>
+            </div>
+          </div>
+
+          <div style="margin-top:12px;">
+            <div style="font-size:13px;font-family:'Lato',sans-serif;letter-spacing:0.08em;color:var(--primary);margin-bottom:4px;font-weight:700;">🏬 新世界百貨店 江南店</div>
+            <div style="font-size:12px;color:var(--muted);margin-bottom:4px;">ダイソー・GOTO MALLと同エリア。ブランドショッピングや食品フロアも充実</div>
+            <div style="font-size:11px;color:var(--muted);margin-bottom:6px;font-family:'Lato',sans-serif;">🕐 10:30〜20:30</div>
+            <div class="tl-links" style="margin-top:0;margin-bottom:10px;">
+              <a class="tl-link naver" href="https://naver.me/5ul93DLv" target="_blank">🗺 Naver Map</a>
+            </div>
+            <div style="margin-top:8px;padding:8px 10px;background:rgba(90,158,126,0.07);border:1px solid rgba(90,158,126,0.2);border-radius:9px;">
+              <div style="font-size:12px;font-weight:600;color:var(--ink);margin-bottom:2px;">🧂 Béton（ベトン）</div>
+              <div style="font-size:11px;color:var(--muted);margin-bottom:4px;">ソルトブレッド（塩パン）で常に行列の人気ベーカリー。百貨店B1直結でサクッと</div>
+              <div style="font-size:10px;color:var(--muted);font-family:'Lato',sans-serif;">🕐 月〜木 10:30〜20:00 / 金〜日 10:30〜20:30（百貨店休業日は休み）</div>
+            </div>
+          </div>
+        </div></div>
+
+        <!-- 荷物戻す -->
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-card">
+          <div class="tl-header"><span class="tl-time">午後</span><span class="tl-cat cat-hotel">Hotel</span><span class="tl-title">ホテルに戻って戦利品を置く 🛍️</span></div>
+          <div class="tl-body">一旦ホテルに戻って荷物を整理。夕方の体験に向けて軽くなって再出発！</div>
+        </div></div>
+
+        <!-- アモーレ龍山 -->
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-card">
+          <div class="tl-header"><span class="tl-time">夕方</span><span class="tl-cat cat-beauty">Beauty</span><span class="tl-title">アモーレ龍山（ヨンサン）</span></div>
+          <div class="tl-body">韓国コスメブランドAmorepacificの本社へ。体験プログラムが充実。20時まで営業。</div>
+          <ul style="margin:8px 0 4px 0;list-style:none;display:flex;flex-direction:column;gap:4px;">
+            <li style="font-size:12px;color:var(--ink);display:flex;align-items:center;gap:6px;">🌸 <span>ヘアオイル作り体験</span></li>
+            <li style="font-size:12px;color:var(--ink);display:flex;align-items:center;gap:6px;">🤖 <span>AI肌診断系コンテンツ</span></li>
+            <li style="font-size:12px;color:var(--ink);display:flex;align-items:center;gap:6px;">💄 <span>コスメチェック・試し使い</span></li>
+          </ul>
+          <div style="font-size:11px;color:var(--muted);margin:8px 0 4px;font-family:'Lato',sans-serif;letter-spacing:0.05em;">🕐 10:30〜20:00</div>
+          <div class="tl-links">
+            <a class="tl-link naver" href="https://naver.me/F05Azztm" target="_blank">🗺 Naver Map</a>
+          </div>
+          <div style="margin-top:12px;padding:8px 10px;background:rgba(90,158,126,0.07);border:1px solid rgba(90,158,126,0.2);border-radius:9px;">
+            <div style="font-size:12px;font-weight:600;color:var(--ink);margin-bottom:2px;">🍵 オソルロク ティーハウス 1979店</div>
+            <div style="font-size:11px;color:var(--muted);margin-bottom:4px;">済州島産抹茶で有名な韓国茶ブランドの店舗。アモーレ本社内にあるのでそのまま立ち寄れる</div>
+            <div style="font-size:10px;color:var(--muted);margin-bottom:5px;font-family:'Lato',sans-serif;">🕐 11:00〜20:00</div>
+            <div class="tl-links" style="margin-top:0;">
+              <a class="tl-link naver" href="https://naver.me/5B0wHdZK" target="_blank">🗺 Naver Map</a>
+            </div>
+          </div>
+        </div></div>
+
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-card">
+          <div class="tl-header"><span class="tl-time">夜</span><span class="tl-cat cat-night">Night</span><span class="tl-title">夜の過ごし方 — 天気で選ぼう</span></div>
+          <div class="tl-body">今日の天気はどっち？ 2パターン用意してるので当日の状況で！</div>
+          <div class="weather-choice">
+            <div class="wc-tab-row">
+              <button class="wc-tab active-sun" id="tab-sun" onclick="switchWeather('sun')">☀️ 晴れ — 文来洞</button>
+              <button class="wc-tab" id="tab-rain" onclick="switchWeather('rain')">☔ 雨 — 永登浦市場</button>
+            </div>
+            <div class="wc-panel active" id="wc-sun">
+              <div class="wc-title">文来洞（ムンレドン）散策 + 飲み</div>
+              <div class="wc-memo">元鉄工所の工場街がアート・カフェ・ワインバーに変身した新感覚エリア。夜の路地がかなりいい雰囲気。</div>
+              <div class="tl-candidates" style="margin-top:10px;">
+                <div class="tl-candidate">
+                  <div class="cand-header"><div class="cand-name">🍶 酒場 ジュンム</div></div>
+                  <div class="cand-memo">ムンレドンの人気居酒屋。地元感があってはしご1軒目にぴったり</div>
+                  <div style="font-size:10px;color:var(--muted);margin:2px 0 6px;font-family:'Lato',sans-serif;">🕐 17:00〜2:00</div>
+                  <div class="cand-links">
+                    <a class="cand-link naver" href="https://naver.me/xhPlSNDB" target="_blank">🗺 Naver Map</a>
+                    <button class="cand-pick-btn" onclick="pickCand(this)">★ ここに決める</button><button class="cand-unpick-btn" onclick="unpickCand(this)">× 解除</button>
+                  </div>
+                </div>
+                <div class="tl-candidate">
+                  <div class="cand-header"><div class="cand-name">🥂 ムンレ ゴルバン</div></div>
+                  <div class="cand-memo">暗めの照明で落ち着いた雰囲気のおつまみ居酒屋。チーズフライ＆ハイボールが名物。★4.6</div>
+                  <div style="font-size:10px;color:var(--muted);margin:2px 0 6px;font-family:'Lato',sans-serif;">🕐 16:00〜24:30</div>
+                  <div class="cand-links">
+                    <a class="cand-link naver" href="https://naver.me/G6RQjpNc" target="_blank">🗺 Naver Map</a>
+                    <button class="cand-pick-btn" onclick="pickCand(this)">★ ここに決める</button><button class="cand-unpick-btn" onclick="unpickCand(this)">× 解除</button>
+                  </div>
+                </div>
+                <div class="tl-candidate">
+                  <div class="cand-header"><div class="cand-name">🏮 スモル</div></div>
+                  <div class="cand-memo">モダンバー・ポチャ・イザカヤが1つの空間に同居する変わり種。はしご感覚で楽しめる。</div>
+                  <div style="font-size:10px;color:var(--muted);margin:2px 0 6px;font-family:'Lato',sans-serif;">🕐 16:00〜24:00</div>
+                  <div class="cand-links">
+                    <a class="cand-link naver" href="https://naver.me/FsowjlBJ" target="_blank">🗺 Naver Map</a>
+                    <button class="cand-pick-btn" onclick="pickCand(this)">★ ここに決める</button><button class="cand-unpick-btn" onclick="unpickCand(this)">× 解除</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="wc-panel" id="wc-rain">
+              <div class="wc-title">永登浦市場 飲み</div>
+              <div class="wc-memo">昭和レトロな市場の空気と庶民的な飲みが雨の夜にちょうどいい。アーケードで雨でも濡れずに楽しめる。</div>
+              <div class="tl-candidates" style="margin-top:10px;">
+                <div class="tl-candidate">
+                  <div class="cand-header"><div class="cand-name">🥩 クンサンチプ</div></div>
+                  <div class="cand-memo">市場内のテーブルで冷三枚肉（豚バラの冷製スライス焼き）。スタッフが焼いてくれるローカルスタイル</div>
+                  <div style="font-size:10px;color:var(--muted);margin:2px 0 6px;font-family:'Lato',sans-serif;">🕐 11:00〜24:30</div>
+                  <div class="cand-links">
+                    <a class="cand-link naver" href="https://naver.me/574QSAaY" target="_blank">🗺 Naver Map</a>
+                  </div>
+                </div>
+                <div class="tl-candidate">
+                  <div class="cand-header"><div class="cand-name">🍶 ソンビネ</div></div>
+                  <div class="cand-memo">市場そばの地元系居酒屋。さっぱりした韓国おつまみとソジュでゆっくり飲める</div>
+                  <div style="font-size:10px;color:var(--muted);margin:2px 0 6px;font-family:'Lato',sans-serif;">🕐 17:00〜23:00</div>
+                  <div class="cand-links">
+                    <a class="cand-link naver" href="https://naver.me/x3cHueil" target="_blank">🗺 Naver Map</a>
+                  </div>
+                </div>
+                <div class="tl-candidate">
+                  <div class="cand-header"><div class="cand-name">🫀 天使コプチャン 永登浦店</div></div>
+                  <div class="cand-memo">ホルモン焼き専門店。深夜まで営業で締めにも使える</div>
+                  <div style="font-size:10px;color:var(--muted);margin:2px 0 6px;font-family:'Lato',sans-serif;">🕐 16:30〜1:30</div>
+                  <div class="cand-links">
+                    <a class="cand-link naver" href="https://naver.me/GowiSLyL" target="_blank">🗺 Naver Map</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div></div>
+
+      </div>
+    </div><!-- /day2 -->
+
+    <!-- ═══ DAY 3 ═══ -->
+    <div class="day-panel" id="day3">
+      <div class="day-header">
+        <div class="day-num-big">03</div>
+        <div class="day-info">
+          <div class="day-date-en">Monday, June 29, 2026</div>
+          <div class="day-title-ja">Slow Morning & Farewell Brunch</div>
+          <div class="day-sub-ja">ちかはヤンジェ川散歩、りさはゆっくり朝。チェックアウトして最後のソウルを楽しんで帰国✈️</div>
+        </div>
+      </div>
+      <div class="timeline">
+
+        <!-- SPLIT MORNING DAY 3 -->
+        <div class="tl-split" id="splitMorningDay3"><div class="tl-dot" style="background:linear-gradient(135deg,#c4607a,#5a88b5);box-shadow:0 0 0 3px var(--bg),0 0 0 5px rgba(196,96,122,0.2);"></div>
+          <div class="split-card">
+            <div class="split-header">
+              <span class="split-header-icon">🌅</span>
+              <span class="split-header-title">午前 — それぞれの朝</span>
+              <span class="split-header-time">〜10:00 チェックアウトまで</span>
+            </div>
+
+            <!-- ちか -->
+            <div class="split-person" style="margin-bottom:0.5rem;padding-bottom:0.5rem;">
+              <div class="split-person-name"><span class="split-person-emoji">🏃‍♀️</span> ちか — ヤンジェ川カフェ通り</div>
+              <div class="weather-block">
+                <div class="weather-label sunny" style="background:rgba(192,156,90,0.15);color:#7a5e00;">☕ カフェ候補</div>
+                <div class="weather-spot">
+                  <span class="weather-spot-icon">☕</span>
+                  <div class="weather-spot-body">
+                    <div class="weather-spot-name">Fabrique Coffee Roasters</div>
+                    <div style="font-size:11px;color:var(--muted);">スペシャルティコーヒー。アインシュペナーが人気</div>
+                    <div style="font-size:10px;color:var(--muted);margin:2px 0 4px;font-family:'Lato',sans-serif;">🕐 平日 8:00〜21:00 / 土 12:00〜18:00 / 日定休</div>
+                    <div class="weather-spot-links">
+                      <a class="weather-spot-link naver" href="https://naver.me/GRDu2HT3" target="_blank">🗺 Naver</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="weather-spot">
+                  <span class="weather-spot-icon">🥐</span>
+                  <div class="weather-spot-body">
+                    <div class="weather-spot-name">COME PRIMA</div>
+                    <div style="font-size:11px;color:var(--muted);">イタリア系ベーカリーカフェ。モーニングにぴったり</div>
+                    <div style="font-size:10px;color:var(--muted);margin:2px 0 4px;font-family:'Lato',sans-serif;">🕐 平日 8:30〜18:00 / 土日 8:30〜20:00</div>
+                    <div class="weather-spot-links">
+                      <a class="weather-spot-link naver" href="https://naver.me/IgM49fve" target="_blank">🗺 Naver</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="weather-spot">
+                  <span class="weather-spot-icon">🍞</span>
+                  <div class="weather-spot-body">
+                    <div class="weather-spot-name">Bread &amp; Walk Bakery</div>
+                    <div style="font-size:11px;color:var(--muted);">ヤンジェ川沿いのベーカリー。散歩しながら立ち寄れる</div>
+                    <div style="font-size:10px;color:var(--muted);margin:2px 0 4px;font-family:'Lato',sans-serif;">🕐 平日 8:00〜19:00 / 土日 8:00〜20:00</div>
+                    <div class="weather-spot-links">
+                      <a class="weather-spot-link naver" href="https://naver.me/GhwSDn1J" target="_blank">🗺 Naver</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- りさ -->
+            <div class="split-person">
+              <div class="split-person-name"><span class="split-person-emoji">🛌</span> りさ — 朝ゆっくり</div>
+              <div style="font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:0.7rem;">
+                ひたすら寝る😴<br>10:00のチェックアウトに合わせて準備。
+              </div>
+              <div class="weather-block">
+                <div class="weather-label sunny" style="background:rgba(192,156,90,0.15);color:#7a5e00;">🥯 （起きれれば）ベーグル買いに行く</div>
+                <div class="weather-spot">
+                  <span class="weather-spot-icon">🥯</span>
+                  <div class="weather-spot-body">
+                    <div class="weather-spot-name">ロンドン ベーグル ミュージアム 道山店</div>
+                    <div style="font-size:11px;color:var(--muted);">行列必至の人気ベーグル店。道山（チョンダム）エリア</div>
+                    <div style="font-size:10px;color:var(--muted);margin:2px 0 4px;font-family:'Lato',sans-serif;">🕐 8:00〜18:00</div>
+                    <div class="weather-spot-links">
+                      <a class="weather-spot-link naver" href="https://naver.me/GSQc8Yxf" target="_blank">🗺 Naver</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="weather-spot">
+                  <span class="weather-spot-icon">🥯</span>
+                  <div class="weather-spot-body">
+                    <div class="weather-spot-name">Toda Bagel ヤンジェ店</div>
+                    <div style="font-size:11px;color:var(--muted);">ホテル近くのベーグル店。朝イチで立ち寄れる</div>
+                    <div style="font-size:10px;color:var(--muted);margin:2px 0 4px;font-family:'Lato',sans-serif;">🕐 平日 8:00〜20:00 / 土日 10:00〜20:00</div>
+                    <div class="weather-spot-links">
+                      <a class="weather-spot-link naver" href="https://naver.me/5wrNl0iU" target="_blank">🗺 Naver</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- チェックアウト -->
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-card">
+          <div class="tl-header"><span class="tl-time">10:00</span><span class="tl-cat cat-hotel">Hotel</span><span class="tl-title">チェックアウト・荷物預け</span></div>
+          <div class="tl-body">チェックアウト後はホテルに荷物を預けて身軽に。江南周辺でブランチへ！</div>
+        </div></div>
+
+        <!-- イーマート -->
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-card">
+          <div class="tl-header"><span class="tl-cat cat-shop">Shop</span><span class="tl-title">イーマート 驛三店 🛒</span></div>
+          <div class="tl-body">ホテル近くの大型スーパー。帰国前の最後の買い出し！</div>
+          <ul style="margin:8px 0 4px 0;list-style:none;display:flex;flex-direction:column;gap:3px;">
+            <li style="font-size:12px;color:var(--ink);display:flex;align-items:center;gap:6px;">🍫 <span>お菓子・スナック類（韓国限定フレーバー要チェック）</span></li>
+            <li style="font-size:12px;color:var(--ink);display:flex;align-items:center;gap:6px;">🌶️ <span>調味料・コチュジャン・ごま油</span></li>
+            <li style="font-size:12px;color:var(--ink);display:flex;align-items:center;gap:6px;">🎁 <span>お土産まとめ買い</span></li>
+            <li style="font-size:12px;color:var(--ink);display:flex;align-items:center;gap:6px;">💊 <span>韓国コスメ・フェイスマスクのばら買いも</span></li>
+          </ul>
+          <div style="font-size:11px;color:var(--muted);margin:8px 0 4px;font-family:'Lato',sans-serif;letter-spacing:0.05em;">🕐 10:00〜23:00（6/28は休業）</div>
+          <div class="tl-links">
+            <a class="tl-link naver" href="https://naver.me/GFsCu8cA" target="_blank">🗺 Naver Map</a>
+          </div>
+          <div class="tl-note">💡 液体類は機内持ち込み不可。預け荷物の残量を確認してから買おう</div>
+        </div></div>
+
+        <!-- ブランチ -->
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-card">
+          <div class="tl-header"><span class="tl-cat cat-food">Brunch</span><span class="tl-title">江南周辺でブランチ 🍳</span></div>
+          <div class="tl-body">最後の朝ごはん、何食べる？</div>
+          <div class="candidates-label" style="margin-top:14px;">Choices</div>
+          <div class="tl-candidates">
+            <div class="tl-candidate">
+              <div class="cand-header"><div class="cand-name">カンナム マッククス &amp; ポッサム</div></div>
+              <div class="cand-memo">冷たいそば麺のマッククスと蒸し豚のポッサムが名物。さっぱり食べられてブランチにぴったり</div>
+              <div class="cand-links">
+                <a class="cand-link naver" href="https://naver.me/FRou37e0" target="_blank">🗺 Naver Map</a>
+                <button class="cand-pick-btn" onclick="pickCand(this)">★ ここに決める</button><button class="cand-unpick-btn" onclick="unpickCand(this)">× 解除</button>
+              </div>
+            </div>
+            <div class="tl-candidate">
+              <div class="cand-header"><div class="cand-name">ハルモニのかまど 江南駅店</div></div>
+              <div class="cand-memo">おばあちゃんの家ごはん感覚の韓国定食。チゲや焼き魚など素朴でほっこりする一品料理が揃う</div>
+              <div class="cand-links">
+                <a class="cand-link naver" href="https://naver.me/xXnwhNVe" target="_blank">🗺 Naver Map</a>
+                <button class="cand-pick-btn" onclick="pickCand(this)">★ ここに決める</button><button class="cand-unpick-btn" onclick="unpickCand(this)">× 解除</button>
+              </div>
+            </div>
+            <div class="tl-candidate">
+              <div class="cand-header"><div class="cand-name">Wheat &amp; Meat</div></div>
+              <div class="cand-memo">正統アメリカンデリ。ジャンボン・パストラミなど肉系サンドイッチが本気。シンノンヒョン駅 徒歩5分</div>
+              <div style="font-size:10px;color:var(--muted);margin:4px 0 6px;font-family:'Lato',sans-serif;">🕐 11:00〜21:00（Break 15:30〜17:00）</div>
+              <div class="cand-links">
+                <a class="cand-link naver" href="https://naver.me/xONd0dme" target="_blank">🗺 Naver Map</a>
+                <button class="cand-pick-btn" onclick="pickCand(this)">★ ここに決める</button><button class="cand-unpick-btn" onclick="unpickCand(this)">× 解除</button>
+              </div>
+            </div>
+          </div>
+        </div></div>
+
+        <!-- 空港へ -->
+        <div class="tl-item tl-transit"><div class="tl-dot"></div><div class="tl-card">
+          <div class="tl-header"><span class="tl-time">11:51</span><span class="tl-cat cat-move">Bus</span><span class="tl-title">空港バスで仁川へ</span></div>
+          <div class="tl-body">ホテル近くのベンベンサゴリバス停から乗車。約1時間10分で仁川T1着。</div>
+          <div class="tl-note">🚌 11:51 ベンベンサゴリ発 → 13:04 仁川 T1着</div>
+        </div></div>
+
+        <div class="tl-item tl-transit"><div class="tl-dot"></div><div class="tl-card">
+          <div class="tl-header"><span class="tl-time">15:15</span><span class="tl-cat cat-move">Flight</span><span class="tl-title">ICN 出発</span></div>
+          <div class="tl-body">ソウルまたね🇰🇷 フライトは約1時間45分。</div>
+          <div class="tl-note">ZE613便 · 仁川国際空港 T1 → 関西国際空港 T1</div>
+        </div></div>
+
+        <div class="tl-item tl-transit"><div class="tl-dot"></div><div class="tl-card">
+          <div class="tl-header"><span class="tl-time">17:00</span><span class="tl-cat cat-move">Arrival</span><span class="tl-title">KIX 到着 — おかえり大阪！</span></div>
+          <div class="tl-body">お疲れ様でした！戦利品を抱えて無事帰国🎉 お肌ぴかぴかで帰ろう✨</div>
+        </div></div>
+
+      </div>
+    </div><!-- /day3 -->
+
+  </div>
+</section>
+
+<div class="divider-line"></div>
+
+<!-- PIT STOPS -->
+<section id="pitstops" style="background:white; padding: 0;">
+<div class="section">
+  <p class="section-eyebrow reveal">Pit Stops</p>
+  <h2 class="section-title reveal">立ち寄り<em>スポット</em></h2>
+  <p style="font-size:13px;color:var(--muted);margin-bottom:1.8rem;margin-top:-1rem;" class="reveal">旅程の合間に挟めるスポット！後で追加予定✏️ タイミングは現地で決めよう🇰🇷</p>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:start;" class="reveal">
+
+    <!-- カフェ・スイーツ & グルメ -->
+    <div style="background:rgba(44,110,138,0.05);border:1px dashed rgba(44,110,138,0.25);border-radius:14px;padding:1.1rem;">
+      <div style="font-family:'Lato',sans-serif;font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--primary);margin-bottom:0.8rem;font-weight:700;">☕ カフェ・グルメ</div>
+      <div class="ps-item">
+        <span class="ps-icon">🍵</span>
+        <div class="ps-body">
+          <div class="ps-name">CHAGEE</div>
+          <div class="ps-memo">中国発の人気ティーブランド。本格派ミルクティーが韓国でも大人気</div>
+          <div style="font-size:10px;color:var(--muted);margin:3px 0 5px;font-family:'Lato',sans-serif;">🕐 9:00〜21:00</div>
+          <div class="ps-links">
+            <a class="ps-link naver" href="https://naver.me/G8fhDE01" target="_blank">🗺 Naver Map</a>
+          </div>
+        </div>
+      </div>
+      <div class="ps-item">
+        <span class="ps-icon">🥐</span>
+        <div class="ps-body">
+          <div class="ps-name">HOFMANN Bakery</div>
+          <div class="ps-memo">人気ベーカリーカフェ。パンのクオリティが高くモーニングプレートも◎</div>
+          <div style="font-size:10px;color:var(--muted);margin:3px 0 5px;font-family:'Lato',sans-serif;">🕐 9:00〜18:00</div>
+          <div class="ps-links">
+            <a class="ps-link naver" href="https://naver.me/FIcNfgcL" target="_blank">🗺 Naver Map</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ショッピング -->
+    <div style="background:rgba(90,158,126,0.07);border:1px dashed rgba(90,158,126,0.3);border-radius:14px;padding:1.1rem;">
+      <div style="font-family:'Lato',sans-serif;font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:#2a6e4e;margin-bottom:0.8rem;font-weight:700;">🛍️ ショッピング</div>
+      <div class="ps-item">
+        <span class="ps-icon">🏛️</span>
+        <div class="ps-body">
+          <div class="ps-name">ハウス オブ 新世界 清潭</div>
+          <div class="ps-memo">新世界百貨店が手がける清潭のラグジュアリーセレクトショップ。国内外のハイブランドが揃う</div>
+          <div style="font-size:10px;color:var(--muted);margin:3px 0 5px;font-family:'Lato',sans-serif;">🕐 10:30〜22:00</div>
+          <div class="ps-links">
+            <a class="ps-link naver" href="https://naver.me/5mvhiJJz" target="_blank">🗺 Naver Map</a>
+          </div>
+        </div>
+      </div>
+      <div class="ps-item">
+        <span class="ps-icon">🏢</span>
+        <div class="ps-body">
+          <div class="ps-name">The Hyundai Seoul</div>
+          <div class="ps-memo">屋内完結の最先端デパート。グルメ・韓国ブランドが充実。永登浦エリアからも近い</div>
+          <div style="font-size:10px;color:var(--muted);margin:3px 0 5px;font-family:'Lato',sans-serif;">🕐 10:30〜20:30（6Fレストラン街 〜22:00）</div>
+          <div class="ps-links">
+            <a class="ps-link" href="https://maps.app.goo.gl/WorhttQoCzWtuETM7?g_st=ic" target="_blank">📍 Google Map</a>
+            <a class="ps-link naver" href="https://naver.me/F5saMGC2" target="_blank">🗺 Naver Map</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<div class="divider-line"></div>
+
+<footer class="footer">
+  <div class="footer-title">See you, Seoul 🇰🇷</div>
+  <div class="footer-sub">2026.06.27 – 06.29 · Girls Trip</div>
+</footer>
+
+<script>
+const STORAGE_KEY = 'seoul2026_v1';
+
+function toggleCheck(el, id) {
+  el.classList.toggle('checked');
+  saveChecks();
+  updateProgress();
+}
+function saveChecks() {
+  const state = {};
+  document.querySelectorAll('.check-item[onclick]').forEach(el => {
+    const m = el.getAttribute('onclick').match(/'([^']+)'\)/);
+    if (m) state[m[1]] = el.classList.contains('checked');
+  });
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch(e) {}
+}
+function loadChecks() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+    document.querySelectorAll('.check-item[onclick]').forEach(el => {
+      const m = el.getAttribute('onclick').match(/'([^']+)'\)/);
+      if (m && saved[m[1]]) el.classList.add('checked');
+    });
+  } catch(e) {}
+}
+function updateProgress() {
+  const items = document.querySelectorAll('.check-item[onclick]');
+  const done  = document.querySelectorAll('.check-item.checked').length;
+  const pct   = items.length ? Math.round(done / items.length * 100) : 0;
+  document.getElementById('progress-text').textContent = `${done} / ${items.length} 完了`;
+  document.getElementById('progress-fill').style.width = pct + '%';
+}
+
+function showDay(id, btn) {
+  document.querySelectorAll('.day-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.day-tab').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  observeTimeline();
+}
+
+function switchWeather(type) {
+  const sunTab  = document.getElementById('tab-sun');
+  const rainTab = document.getElementById('tab-rain');
+  const sunPanel  = document.getElementById('wc-sun');
+  const rainPanel = document.getElementById('wc-rain');
+  if (type === 'sun') {
+    sunTab.classList.add('active-sun'); sunTab.classList.remove('active-rain');
+    rainTab.classList.remove('active-sun', 'active-rain');
+    sunPanel.classList.add('active'); rainPanel.classList.remove('active');
+  } else {
+    rainTab.classList.add('active-rain'); rainTab.classList.remove('active-sun');
+    sunTab.classList.remove('active-sun', 'active-rain');
+    rainPanel.classList.add('active'); sunPanel.classList.remove('active');
+  }
+}
+
+function switchMorning(type) {
+  const sunTab  = document.getElementById('tab-morning-sun');
+  const rainTab = document.getElementById('tab-morning-rain');
+  const sunPanel  = document.getElementById('wc-morning-sun');
+  const rainPanel = document.getElementById('wc-morning-rain');
+  if (type === 'sun') {
+    sunTab.classList.add('active-sun'); sunTab.classList.remove('active-rain');
+    rainTab.classList.remove('active-sun', 'active-rain');
+    sunPanel.classList.add('active'); rainPanel.classList.remove('active');
+  } else {
+    rainTab.classList.add('active-rain'); rainTab.classList.remove('active-sun');
+    sunTab.classList.remove('active-sun', 'active-rain');
+    rainPanel.classList.add('active'); sunPanel.classList.remove('active');
+  }
+}
+
+// Sticky nav
+const nav = document.getElementById('stickyNav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('visible', window.scrollY > 80);
+}, { passive: true });
+
+// Reveal observer
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 80);
+      revealObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+// Timeline observer
+const tlObs = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 110);
+      tlObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.06 });
+function observeTimeline() {
+  document.querySelectorAll('.tl-item:not(.visible), .tl-split:not(.visible), .tl-pitstop:not(.visible)').forEach(el => tlObs.observe(el));
+}
+observeTimeline();
+
+// Candidate pick
+function pickCand(btn) {
+  const card = btn.closest('.tl-candidate');
+  const group = card.closest('.tl-candidates');
+  group.querySelectorAll('.tl-candidate').forEach(c => c.classList.remove('picked'));
+  card.classList.add('picked');
+}
+function unpickCand(btn) {
+  btn.closest('.tl-candidate').classList.remove('picked');
+}
+
+// Auto-inject photo slots into all candidate cards
+function injectPhotoSlots() {
+  document.querySelectorAll('.tl-candidate').forEach(card => {
+    if (card.querySelector('.cand-photo')) return;
+    const body = document.createElement('div');
+    body.className = 'cand-body';
+    while (card.firstChild) body.appendChild(card.firstChild);
+    card.appendChild(body);
+    const photo = document.createElement('div');
+    photo.className = 'cand-photo';
+    const url = card.getAttribute('data-photo');
+    photo.innerHTML = url
+      ? `<img src="${url}" alt="photo">`
+      : '<span class="cand-photo-empty">📷</span>';
+    card.appendChild(photo);
+  });
+}
+
+loadChecks();
+updateProgress();
+injectPhotoSlots();
+</script>
+</body>
+</html>
