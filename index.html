@@ -417,6 +417,7 @@ body { font-family: 'Noto Sans JP', sans-serif; background: var(--bg); color: va
       <div class="flight-info">
         <div class="flight-info-row"><span>Terminal</span><span>KIX T1発 / ICN T1着</span></div>
         <div class="flight-info-row"><span>Duration</span><span>1時間50分（直行）</span></div>
+        <div class="flight-info-row"><span>Luggage</span><span>15kg</span></div>
       </div>
     </div>
     <!-- Return -->
@@ -433,6 +434,7 @@ body { font-family: 'Noto Sans JP', sans-serif; background: var(--bg); color: va
       <div class="flight-info">
         <div class="flight-info-row"><span>Terminal</span><span>ICN T1発 / KIX T1着</span></div>
         <div class="flight-info-row"><span>Duration</span><span>1時間45分（直行）</span></div>
+        <div class="flight-info-row"><span>Luggage</span><span>なし（要追加購入）</span></div>
       </div>
     </div>
   </div>
@@ -448,11 +450,12 @@ body { font-family: 'Noto Sans JP', sans-serif; background: var(--bg); color: va
     <div class="checklist-grid">
       <div class="checklist-group reveal">
         <div class="checklist-group-title">📋 行く前の準備</div>
-        <div class="check-item" onclick="toggleCheck(this,'p1')"><div class="check-box"></div><span class="check-label">フライトのオンラインチェックイン<small>出発24時間前〜</small></span></div>
-        <div class="check-item" onclick="toggleCheck(this,'p2')"><div class="check-box"></div><span class="check-label">電子入国カードの提出<small>入国3日前〜</small></span></div>
-        <div class="check-item" onclick="toggleCheck(this,'p3')"><div class="check-box"></div><span class="check-label">eSIMまたはSIMカードの手配<small>空港到着後すぐ繋げるように日本で準備</small></span></div>
-        <div class="check-item" onclick="toggleCheck(this,'p4')"><div class="check-box"></div><span class="check-label">Naverマップアプリのダウンロード<small>韓国はGoogleマップより精度高め</small></span></div>
-        <div class="check-item" onclick="toggleCheck(this,'p5')"><div class="check-box"></div><span class="check-label">T-moneyカードの準備<small>アプリからモバイルT-moneyもスタート！</small></span></div>
+        <div class="check-item" onclick="toggleCheck(this,'p1')"><div class="check-box"></div><span class="check-label">復路受託手荷物の購入<small>〜出発24時間前</small></span></div>
+        <div class="check-item" onclick="toggleCheck(this,'p2')"><div class="check-box"></div><span class="check-label">フライトのオンラインチェックイン<small>出発24時間前〜</small></span></div>
+        <div class="check-item" onclick="toggleCheck(this,'p3')"><div class="check-box"></div><span class="check-label">電子入国カードの提出<small>入国3日前〜</small></span></div>
+        <div class="check-item" onclick="toggleCheck(this,'p4')"><div class="check-box"></div><span class="check-label">eSIMまたはSIMカードの手配<small>空港到着後すぐ繋げるように日本で準備</small></span></div>
+        <div class="check-item" onclick="toggleCheck(this,'p5')"><div class="check-box"></div><span class="check-label">Naverマップアプリのダウンロード<small>韓国はGoogleマップより精度高め</small></span></div>
+        <div class="check-item" onclick="toggleCheck(this,'p6')"><div class="check-box"></div><span class="check-label">T-moneyカードの準備<small>アプリからモバイルT-moneyも利用可</small></span></div>
       </div>
       <div class="checklist-group reveal">
         <div class="checklist-group-title">🧳 持ち物リスト</div>
@@ -516,8 +519,9 @@ body { font-family: 'Noto Sans JP', sans-serif; background: var(--bg); color: va
 
         <div class="tl-item tl-transit"><div class="tl-dot"></div><div class="tl-card">
           <div class="tl-header"><span class="tl-time">15:30〜</span><span class="tl-cat cat-move">Bus</span><span class="tl-title">空港バスでホテルへ移動</span></div>
-          <div class="tl-body">仁川〜江南エリア行きのリムジンバスが便利。約90分。</div>
-          <div class="tl-note">🚌 6009番バス / 17,000ウォン · T-moneyまたは現金で乗車<br>💡 18:00の肌管理に間に合わなさそうなら空港からクリニックまでタクシーで直行（目安 約60分 / 約60,000ウォン）</div>
+          <div class="tl-body">仁川〜江南エリア行きのリムジンバスが便利。約90分 / 17,000ウォン </div>
+          <div class="tl-note">🚌 6009番バス / 4A-3乗り場 · 券売機でチケット購入（クレカ対応）
+            <div class="tl-note">💡 18:00の肌管理に間に合わなさそうならクリニックまでタクシーで直行（目安 約60分 / 約60,000ウォン）</div>
         </div></div>
 
         <div class="tl-item"><div class="tl-dot"></div><div class="tl-card">
@@ -729,18 +733,6 @@ body { font-family: 'Noto Sans JP', sans-serif; background: var(--bg); color: va
                     <div class="weather-spot-links">
                       <a class="weather-spot-link" href="https://maps.app.goo.gl/pM3Xg1xZD4r2VPpN7?g_st=ic" target="_blank">📍 Google Map</a>
                       <a class="weather-spot-link naver" href="https://naver.me/Gjyy9g7o" target="_blank">🗺 Naver</a>
-                  </div>
-                  </div>
-                </div>
-                <div class="weather-spot">
-                  <span class="weather-spot-icon">🛍️</span>
-                  <div class="weather-spot-body">
-                    <div class="weather-spot-name">CELINE — 現代百貨店 貿易センター店</div>
-                    <div style="font-size:11px;color:var(--muted);">COEXに直結のデパートで憧れのバッグをゲット👜 万が一売り切れの場合はギャレリア百貨店へ。</div>
-                    <div style="font-size:10px;color:var(--muted);margin:2px 0 4px;font-family:'Lato',sans-serif;">🕐 平日 10:30〜20:00 / 金〜日 10:30〜20:30</div>
-                    <div class="weather-spot-links">
-                      <a class="weather-spot-link" href="https://maps.app.goo.gl/g1Rfc4ukrtLYrQ2w7?g_st=ic" target="_blank">📍 貿易センター</a>
-                      <a class="weather-spot-link naver" href="https://naver.me/56X5HmLB" target="_blank">🗺 ギャレリア（保険）</a>
                      </div>
                   </div>
                 </div>
@@ -761,7 +753,7 @@ body { font-family: 'Noto Sans JP', sans-serif; background: var(--bg); color: va
         <!-- 江南ランチ -->
 <div class="tl-item"><div class="tl-dot"></div><div class="tl-card">
           <div class="tl-header"><span class="tl-time">11:30〜</span><span class="tl-cat cat-food">Lunch</span><span class="tl-title">江南エリアランチ 🍽️</span></div>
-          <div class="tl-body">買い物の前後に腹ごしらえ！全てCOEX周辺</div>
+          <div class="tl-body">買い物の前後に腹ごしらえ！</div>
           <div class="candidates-label" style="margin-top:14px;">Choices</div>
           <div class="tl-candidates">
             <div class="tl-candidate" data-photo="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210825_264%2F1629867161699S9Hmn_JPEG%2FEiBe74tr7CwSBKW6mRHEcVEE.jpg">
@@ -784,13 +776,13 @@ body { font-family: 'Noto Sans JP', sans-serif; background: var(--bg); color: va
                 <button class="cand-pick-btn" onclick="pickCand(this)">★ ここに決める</button><button class="cand-unpick-btn" onclick="unpickCand(this)">× 解除</button>
               </div>
             </div>
-            <div class="tl-candidate" data-photo="https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyNjA1MjVfMjk3%2FMDAxNzc5NzA0NzQ2MDA1.9WfDfQpP70HqBACE2s9Bfn3rNQ7TUnZcJz7WvEtzSVQg.TKGJw8z6Jk9TOLQUjUg76V348nDw-H8UhuUleAvIBOAg.JPEG%2F20260525_185452.jpg.jpg%3Ftype%3Dw1500_60_sharpen">
-              <div class="cand-header"><div class="cand-name">ムタン COEX店</div></div>
-              <div class="cand-memo">韓国風中華にモダンなアレンジを加えたフュージョン料理</div>
-              <div style="font-size:10px;color:var(--muted);margin:4px 0 6px;font-family:'Lato',sans-serif;">🕐 11:00〜21:30</div>
+            <div class="tl-candidate" data-photo="https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyNjA1MTNfNDYg%2FMDAxNzc4NjQ5MDk2NTA0.rbIEZMJojNZfSBxiZpOcg9xaDdtuHBAGXQQKUoJBBQEg._kFo6M0GD10P-iSb7x2m1_L2d_MU6_N8ehYzuIL8Mkcg.JPEG%2F20260513_133934.jpg.jpg%3Ftype%3Dw1500_60_sharpen">
+              <div class="cand-header"><div class="cand-name">イム・ビョンジュ山東ソンカルグクス</div></div>
+              <div class="cand-memo">ホテル近くのミシュラン掲載カルグクス店。夏季限定のコングクスも必食/div>
+              <div style="font-size:10px;color:var(--muted);margin:4px 0 6px;font-family:'Lato',sans-serif;">🕐 11:00〜21:00 / 月曜定休</div>
               <div class="cand-links">
-                <a class="cand-link" href="https://maps.app.goo.gl/THPJMWBipj3PSrRF7?g_st=ic" target="_blank">📍 Google Map</a>
-                <a class="cand-link naver" href="https://naver.me/GowiSEDQ" target="_blank">🗺 Naver Map</a>
+                <a class="cand-link" href="https://maps.app.goo.gl/2dd4E9yk5pnZJ5Pr5?g_st=ic" target="_blank">📍 Google Map</a>
+                <a class="cand-link naver" href="https://naver.me/FgEnCQI8" target="_blank">🗺 Naver Map</a>
                 <button class="cand-pick-btn" onclick="pickCand(this)">★ ここに決める</button><button class="cand-unpick-btn" onclick="unpickCand(this)">× 解除</button>
               </div>
             </div>
@@ -1152,7 +1144,7 @@ body { font-family: 'Noto Sans JP', sans-serif; background: var(--bg); color: va
         <!-- 空港へ -->
         <div class="tl-item tl-transit"><div class="tl-dot"></div><div class="tl-card">
           <div class="tl-header"><span class="tl-time">11:51</span><span class="tl-cat cat-move">Bus</span><span class="tl-title">空港バスで空港へ</span></div>
-          <div class="tl-body">ホテル近くのバス停から乗車。約1時間10分で仁川T1着。</div>
+          <div class="tl-body">ホテル近くのバス停から乗車。約1時間10分で空港着</div>
           <div class="tl-note">🚌 11:53 レミアンアパート発 → 13:04 仁川 T1着</div>
         </div></div>
 
